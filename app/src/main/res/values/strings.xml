@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="title_MiRuta">Mi Ruta</string>
+    <string name="title_Rutas">Rutas</string>
+    <string name="title_Perfil">Perfil</string>
+
+</resources>
