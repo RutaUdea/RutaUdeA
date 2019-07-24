@@ -17,7 +17,7 @@ import android.view.MenuItem;
 public class MainActivity extends AppCompatActivity {
     final Fragment fragment1 = new Mapa();
     final Fragment fragment2 = new Rutas();
-    final Fragment fragment3 = new Rutas();
+    final Fragment fragment3 = new Perfil();
     final FragmentManager fm = getSupportFragmentManager();
     Fragment active = fragment1;
 
@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
 
 
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.nav_view);

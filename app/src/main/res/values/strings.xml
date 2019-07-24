@@ -1,7 +1,12 @@
 <resources>
-    <string name="app_name">My Application</string>
+    <string name="app_name">Ruta UdeA</string>
     <string name="title_MiRuta">Mi Ruta</string>
     <string name="title_Rutas">Rutas</string>
     <string name="title_Perfil">Perfil</string>
+    <string name="BTLogOut">Cerrar Sesion</string>
+    <string name="NoLogin">No se pudo iniciar sesion</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

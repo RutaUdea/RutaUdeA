@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "934594144604",
+    "firebase_url": "https://rutaudea-c9920.firebaseio.com",
+    "project_id": "rutaudea-c9920",
+    "storage_bucket": "rutaudea-c9920.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:934594144604:android:13c3c6a65bcbec53",
+        "android_client_info": {
+          "package_name": "com.example.myapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "934594144604-6k9mo7rnijopb6d02ggepv20f1mdj78f.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.myapplication",
+            "certificate_hash": "5d7ff83043248dc35fbac87f21664c21e04246d7"
+          }
+        },
+        {
+          "client_id": "934594144604-hf1mrlesd0n7ka0s21612v10tiietvvc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAbd-mfE-gO8Jdt15BONh1FU1n99o1rAHU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "934594144604-hf1mrlesd0n7ka0s21612v10tiietvvc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
