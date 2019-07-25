@@ -35,14 +35,16 @@
             android:layout_height="wrap_content"
             android:text="@string/app_name"
             android:id="@+id/TVtelefono"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/BTLogOut"
+            android:layout_marginTop="100dp"
+            android:id="@+id/BLogOut"/>
 
     </LinearLayout>
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/BTLogOut"
-        android:layout_gravity="bottom"/>
+
 
 
 

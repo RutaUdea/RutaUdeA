@@ -10,8 +10,10 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.google.android.gms.auth.api.Auth;
@@ -22,6 +24,7 @@ import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.OptionalPendingResult;
 import com.google.android.gms.common.api.ResultCallback;
+import com.google.android.gms.common.api.Status;
 
 
 /**
@@ -33,6 +36,7 @@ public class Perfil extends Fragment implements GoogleApiClient.OnConnectionFail
     private TextView nombrePerfil;
     private TextView correoPErfil;
     private TextView celularPerfil;
+    private Button BCerrarSession;
     private GoogleApiClient googleApiClient;
 
     public Perfil() {
@@ -49,6 +53,7 @@ public class Perfil extends Fragment implements GoogleApiClient.OnConnectionFail
         nombrePerfil=(TextView) v.findViewById(R.id.TVnombre);
         correoPErfil= (TextView) v.findViewById(R.id.TVcorreo);
         celularPerfil=(TextView) v.findViewById(R.id.TVtelefono);
+        BCerrarSession=(Button) v.findViewById(R.id.BLogOut);
 
         GoogleSignInOptions gso= new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestEmail()
@@ -58,6 +63,22 @@ public class Perfil extends Fragment implements GoogleApiClient.OnConnectionFail
                 .enableAutoManage(getActivity(),this)
                 .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
                 .build();
+
+        BCerrarSession.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Auth.GoogleSignInApi.signOut(googleApiClient).setResultCallback(new ResultCallback<Status>() {
+                    @Override
+                    public void onResult(@NonNull Status status) {
+                        if(status.isSuccess()){
+                            goLoginScreen();
+                        }else{
+                            Toast.makeText(getContext(),R.string.NoLogOut,Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+            }
+        });
         return  v;
     }
 
@@ -84,7 +105,6 @@ public class Perfil extends Fragment implements GoogleApiClient.OnConnectionFail
     private void ObteenerResutlado(GoogleSignInResult result) {
         if(result.isSuccess()){
             GoogleSignInAccount cuenta=result.getSignInAccount();
-
             nombrePerfil.setText(cuenta.getDisplayName());
             correoPErfil.setText(cuenta.getEmail());
             Glide.with(this).load(cuenta.getPhotoUrl()).into(fotoPerfil);
@@ -92,7 +112,13 @@ public class Perfil extends Fragment implements GoogleApiClient.OnConnectionFail
         else{
             IniciarLogin();
         }
+    }
 
+
+
+    private void goLoginScreen(){
+        Intent i= new Intent(getActivity(), LoginGoogle.class);
+        getActivity().startActivity(i);
     }
 
     private void IniciarLogin() {

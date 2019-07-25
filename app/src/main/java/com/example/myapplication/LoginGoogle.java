@@ -7,11 +7,14 @@ package com.example.myapplication;
         import android.view.View;
         import android.widget.Toast;
         import com.google.android.gms.auth.api.Auth;
+        import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
         import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
         import com.google.android.gms.auth.api.signin.GoogleSignInResult;
         import com.google.android.gms.common.ConnectionResult;
         import com.google.android.gms.common.SignInButton;
         import com.google.android.gms.common.api.GoogleApiClient;
+        import com.google.android.gms.common.api.ResultCallback;
+        import com.google.android.gms.common.api.Status;
 
 public class LoginGoogle extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener {
 
@@ -67,7 +70,21 @@ public class LoginGoogle extends AppCompatActivity implements GoogleApiClient.On
 
     private void handleSignInResult(GoogleSignInResult result) {
         if (result.isSuccess()) {
-            goMainScreen();
+            GoogleSignInAccount cuenta=result.getSignInAccount();
+            String correo=cuenta.getEmail();
+            int resultado=correo.indexOf("udea.edu.co");
+            if(resultado!=-1){
+                goMainScreen();
+            }
+            else{
+                Auth.GoogleSignInApi.signOut(googleApiClient).setResultCallback(new ResultCallback<Status>() {
+                    @Override
+                    public void onResult(@NonNull Status status) {
+                        Toast.makeText(getApplicationContext(), R.string.UsarCuentaUdea, Toast.LENGTH_LONG).show();
+                    }
+                });
+            }
+
         } else {
             Toast.makeText(this, R.string.NoLogin, Toast.LENGTH_SHORT).show();
         }
