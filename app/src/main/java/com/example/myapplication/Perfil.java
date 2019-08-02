@@ -52,7 +52,6 @@ public class Perfil extends Fragment implements GoogleApiClient.OnConnectionFail
         fotoPerfil=(ImageView) v.findViewById(R.id.IVfoto);
         nombrePerfil=(TextView) v.findViewById(R.id.TVnombre);
         correoPErfil= (TextView) v.findViewById(R.id.TVcorreo);
-        celularPerfil=(TextView) v.findViewById(R.id.TVtelefono);
         BCerrarSession=(Button) v.findViewById(R.id.BLogOut);
 
         GoogleSignInOptions gso= new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
