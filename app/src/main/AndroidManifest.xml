@@ -14,7 +14,8 @@
         android:roundIcon="@mipmap/ic_ruta_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SplashScreen" android:theme="@android:style/Theme.Holo.NoActionBar.Fullscreen">
+        <activity android:name=".SplashScreen"
+            android:theme="@style/SplasTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
