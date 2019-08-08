@@ -61,24 +61,19 @@
                     android:textStyle="bold"
                     android:layout_marginTop="10dp"/>
 
-                <LinearLayout
+                <EditText
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:hint="@string/DefaultWhatsapp"
+                    android:id="@+id/etNumero"/>
 
-                    <EditText
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/DefaultWhatsapp"/>
-
-                    <Button
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/BActulizarNum"/>
-
-                </LinearLayout>
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/BActulizarNum"
+                    android:id="@+id/btnActualizar"/>
 
             </LinearLayout>
-
 
         </LinearLayout>
 

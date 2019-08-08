@@ -1,7 +1,10 @@
 package com.example.myapplication;
 
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.support.annotation.NonNull;
@@ -11,11 +14,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.example.myapplication.objetos.ReferenciasFirebase;
+import com.example.myapplication.objetos.RutasBD;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
@@ -25,6 +31,8 @@ import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.OptionalPendingResult;
 import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.common.api.Status;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 
 /**
@@ -37,7 +45,13 @@ public class Perfil extends Fragment implements GoogleApiClient.OnConnectionFail
     private TextView correoPErfil;
     private TextView celularPerfil;
     private Button BCerrarSession;
+    private Button btnActualizar;
+    private EditText etNumero;
     private GoogleApiClient googleApiClient;
+    SharedPreferences prefs;
+    FirebaseDatabase baseDatos;
+    DatabaseReference bdReferencia;
+    RutasBD ruta;
 
     public Perfil() {
         // Required empty public constructor
@@ -53,6 +67,13 @@ public class Perfil extends Fragment implements GoogleApiClient.OnConnectionFail
         nombrePerfil=(TextView) v.findViewById(R.id.TVnombre);
         correoPErfil= (TextView) v.findViewById(R.id.TVcorreo);
         BCerrarSession=(Button) v.findViewById(R.id.BLogOut);
+        btnActualizar=(Button) v.findViewById(R.id.btnActualizar);
+        etNumero=(EditText) v.findViewById(R.id.etNumero);
+
+        prefs=this.getActivity().getSharedPreferences("Datos", Context.MODE_PRIVATE);
+
+        baseDatos=FirebaseDatabase.getInstance();
+        bdReferencia=baseDatos.getReference(ReferenciasFirebase.BASE_DATOS_REFERENCIA);
 
         GoogleSignInOptions gso= new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestEmail()
@@ -76,6 +97,22 @@ public class Perfil extends Fragment implements GoogleApiClient.OnConnectionFail
                         }
                     }
                 });
+            }
+        });
+
+        btnActualizar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String cadena="";
+                String numerot="Null";
+                if(cadena.compareTo(etNumero.getText().toString())!=0){
+                    numerot=etNumero.getText().toString();
+                }
+                ruta=new RutasBD(prefs.getString("nombre","nombre")
+                        ,prefs.getString("correo","correo")
+                        ,prefs.getString("foto","foto")
+                        ,numerot);
+                bdReferencia.child(prefs.getString("id","")).setValue(ruta);
             }
         });
         return  v;

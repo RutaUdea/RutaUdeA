@@ -1,6 +1,8 @@
 package com.example.myapplication;
 
+        import android.content.Context;
         import android.content.Intent;
+        import android.content.SharedPreferences;
         import android.support.annotation.NonNull;
         import android.support.v7.app.AppCompatActivity;
         import android.os.Bundle;
@@ -19,10 +21,10 @@ package com.example.myapplication;
 public class LoginGoogle extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener {
 
     private GoogleApiClient googleApiClient;
-
     private SignInButton signInButton;
-
     public static final int SIGN_IN_CODE = 777;
+    SharedPreferences prefs;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +34,8 @@ public class LoginGoogle extends AppCompatActivity implements GoogleApiClient.On
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestEmail()
                 .build();
+
+        prefs=getSharedPreferences("Datos", Context.MODE_PRIVATE);
 
         googleApiClient = new GoogleApiClient.Builder(this)
                 .enableAutoManage(this, this)
@@ -71,6 +75,12 @@ public class LoginGoogle extends AppCompatActivity implements GoogleApiClient.On
     private void handleSignInResult(GoogleSignInResult result) {
         if (result.isSuccess()) {
             GoogleSignInAccount cuenta=result.getSignInAccount();
+            SharedPreferences.Editor editor = prefs.edit();
+            editor.putString("nombre",cuenta.getDisplayName());
+            editor.putString("correo",cuenta.getEmail());
+            editor.putString("id",cuenta.getId());
+            editor.putString("foto",cuenta.getPhotoUrl().toString());
+            editor.commit();
             String correo=cuenta.getEmail();
             int resultado=correo.indexOf("udea.edu.co");
             if(resultado!=-1){
