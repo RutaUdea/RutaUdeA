@@ -12,6 +12,7 @@
     <string name="STVNombre">Nombre</string>
     <string name="STVCorreo">Correo</string>
     <string name="STVNumero">Numero de Contacto</string>
+    <string name="ConfirmacionRuta">Ruta Compartida con Exito</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

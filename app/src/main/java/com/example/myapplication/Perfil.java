@@ -4,12 +4,9 @@ package com.example.myapplication;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.net.Uri;
 import android.os.Bundle;
-import android.provider.Settings;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,8 +17,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
-import com.example.myapplication.objetos.ReferenciasFirebase;
-import com.example.myapplication.objetos.RutasBD;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
@@ -31,8 +26,6 @@ import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.OptionalPendingResult;
 import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.common.api.Status;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 
 
 /**
@@ -49,9 +42,7 @@ public class Perfil extends Fragment implements GoogleApiClient.OnConnectionFail
     private EditText etNumero;
     private GoogleApiClient googleApiClient;
     SharedPreferences prefs;
-    FirebaseDatabase baseDatos;
-    DatabaseReference bdReferencia;
-    RutasBD ruta;
+
 
     public Perfil() {
         // Required empty public constructor
@@ -71,9 +62,7 @@ public class Perfil extends Fragment implements GoogleApiClient.OnConnectionFail
         etNumero=(EditText) v.findViewById(R.id.etNumero);
 
         prefs=this.getActivity().getSharedPreferences("Datos", Context.MODE_PRIVATE);
-
-        baseDatos=FirebaseDatabase.getInstance();
-        bdReferencia=baseDatos.getReference(ReferenciasFirebase.BASE_DATOS_REFERENCIA);
+        final SharedPreferences.Editor editor = prefs.edit();
 
         GoogleSignInOptions gso= new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestEmail()
@@ -108,11 +97,9 @@ public class Perfil extends Fragment implements GoogleApiClient.OnConnectionFail
                 if(cadena.compareTo(etNumero.getText().toString())!=0){
                     numerot=etNumero.getText().toString();
                 }
-                ruta=new RutasBD(prefs.getString("nombre","nombre")
-                        ,prefs.getString("correo","correo")
-                        ,prefs.getString("foto","foto")
-                        ,numerot);
-                bdReferencia.child(prefs.getString("id","")).setValue(ruta);
+                editor.putString("telefono",numerot);
+                editor.commit();
+
             }
         });
         return  v;

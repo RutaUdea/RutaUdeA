@@ -18,13 +18,6 @@ public class RutasBD {
         this.ruta = ruta;
     }
 
-    public RutasBD(String nombre, String correo, String foto, String numero) {
-        this.nombre = nombre;
-        this.correo = correo;
-        this.foto = foto;
-        this.numero = numero;
-    }
-
     public String getNombre() {
         return nombre;
     }
