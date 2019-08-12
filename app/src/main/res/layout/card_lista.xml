@@ -52,13 +52,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAlignment="textEnd"
-                android:text="Uiversidad de Antioquia"/>
+                android:text="Universidad de Antioquia"/>
         </LinearLayout>
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Ver Detalle de Ruta" />
+            android:text="Ver Detalle de Ruta"
+            android:id="@+id/btnVerDetalleRuta"/>
 
     </LinearLayout>
 

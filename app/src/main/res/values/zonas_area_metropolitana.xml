@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="zonas">
+        <item>Bello</item>
+        <item>Envigado</item>
+        <item>Itagui</item>
+        <item>La Estrella</item>
+        <item>Girardota</item>
+        <item>Copacabana</item>
+        <item>Comuna 1(Popular,Santo DOmingo,Granizal, etc)</item>
+        <item>Comuna 2(Santa Cruz,Andalucia,La Francia, etc)</item>
+        <item>Comuna 3(Manrique,Compo Valdes,Santa Ines, etc)</item>
+        <item>Comuna 4(Aranjuez, Moravia, San Isidro, etc)</item>
+        <item>Comuna 5(Castilla,Las Brisas,Caribe, etc)</item>
+        <item>Comuna 6(Doce de Octubre,Pedregal,Picacho,etc)</item>
+        <item>Comuna 7(Robledo,Pilarica,La Aurora, etc)</item>
+        <item>Comuna 8(Villa Hermosa,Enciso,San Antonio,etc)</item>
+        <item>Comuna 9(Buenos Aires,El Salvador,Quinta Linda,etc)</item>
+        <item>Comuna 10(La Candelaria,Prado,Las Palmas,etc)</item>
+        <item>Comuna 11(Laureles, Estadio, Colores, etc)</item>
+        <item>Comuna 12(La America,Calasanz,Santa Lucia,etc)</item>
+        <item>Comuna 13(San Javier,Belencito,Calasania)</item>
+        <item>Comuna 14(Poblado, Tesoro, Aguacatala,etc)</item>
+        <item>Comuna 15(Guayabal, Cristo Rey, Trinidad,etc)</item>
+        <item>Comuna 16(Belen,Ricon,Loma los Bernal,etc)</item>
+    </string-array>
+</resources>

@@ -1,21 +1,33 @@
 package com.example.myapplication.objetos;
 
-public class RutasBD {
+import java.io.Serializable;
+
+public class RutasBD  implements Serializable {
     private String nombre;
     private String correo;
     private String foto;
     private String numero;
     private String ruta;
+    private String zona;
 
     public RutasBD() {
     }
 
-    public RutasBD(String nombre, String correo, String foto, String numero, String ruta) {
+    public RutasBD(String nombre, String correo, String foto, String numero, String ruta, String zona) {
         this.nombre = nombre;
         this.correo = correo;
         this.foto = foto;
         this.numero = numero;
         this.ruta = ruta;
+        this.zona= zona;
+    }
+
+    public String getZona() {
+        return zona;
+    }
+
+    public void setZona(String zona) {
+        this.zona = zona;
     }
 
     public String getNombre() {
