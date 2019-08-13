@@ -9,17 +9,27 @@ public class RutasBD  implements Serializable {
     private String numero;
     private String ruta;
     private String zona;
+    private String id;
 
     public RutasBD() {
     }
 
-    public RutasBD(String nombre, String correo, String foto, String numero, String ruta, String zona) {
+    public RutasBD(String nombre, String correo, String foto, String numero, String ruta, String zona, String id) {
         this.nombre = nombre;
         this.correo = correo;
         this.foto = foto;
         this.numero = numero;
         this.ruta = ruta;
         this.zona= zona;
+        this.id=id;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getZona() {

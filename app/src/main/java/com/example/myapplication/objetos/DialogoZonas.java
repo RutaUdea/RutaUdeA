@@ -53,7 +53,8 @@ public class DialogoZonas {
                         ,prefs.getString("foto","foto")
                         ,prefs.getString("telefono","telefono")
                         ,prefs.getString("ruta","ruta")
-                        ,spinnerZonas.getSelectedItem().toString());
+                        ,spinnerZonas.getSelectedItem().toString()
+                        ,prefs.getString("id","id"));
                 bdReferencia.child(prefs.getString("id","")).setValue(ruta);
                 zonas.dismiss();
             }

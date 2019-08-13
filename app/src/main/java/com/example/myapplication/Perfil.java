@@ -4,6 +4,7 @@ package com.example.myapplication;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
@@ -42,6 +43,7 @@ public class Perfil extends Fragment implements GoogleApiClient.OnConnectionFail
     private EditText etNumero;
     private GoogleApiClient googleApiClient;
     SharedPreferences prefs;
+    GoogleSignInAccount cuenta;
 
 
     public Perfil() {
@@ -127,7 +129,7 @@ public class Perfil extends Fragment implements GoogleApiClient.OnConnectionFail
 
     private void ObteenerResutlado(GoogleSignInResult result) {
         if(result.isSuccess()){
-            GoogleSignInAccount cuenta=result.getSignInAccount();
+            cuenta=result.getSignInAccount();
             nombrePerfil.setText(cuenta.getDisplayName());
             correoPErfil.setText(cuenta.getEmail());
             Glide.with(this).load(cuenta.getPhotoUrl()).into(fotoPerfil);
