@@ -1,27 +1,277 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="zonas">
+        <item>Aguas Frias</item>
+        <item>Aldea Pablo VI</item>
+        <item>Alejandria</item>
+        <item>Alejandro Echavarria</item>
+        <item>Alfonso Lopez</item>
+        <item>Altamira</item>
+        <item>Altavista</item>
+        <item>Altos del Poblado</item>
+        <item>Andalucia</item>
+        <item>Antonio Nariño</item>
+        <item>Aranjuez</item>
+        <item>Asomadera N 1</item>
+        <item>Asomadera N 2</item>
+        <item>Asomadera N 3</item>
+        <item>Astorga</item>
+        <item>Aures N 1</item>
+        <item>Aures N 2</item>
+        <item>Barrio Colombia</item>
+        <item>Barrio Colon</item>
+        <item>Barrio Cristobal</item>
+        <item>Barrio Facultad de Minas</item>
+        <item>Barrio Pablo Escobar</item>
+        <item>Barrios de Jesus</item>
+        <item>Batallon Girardot</item>
+        <item>Belalcazar</item>
+        <item>Belen</item>
+        <item>Belencito</item>
         <item>Bello</item>
-        <item>Envigado</item>
-        <item>Itagui</item>
-        <item>La Estrella</item>
-        <item>Girardota</item>
+        <item>Bello Horizonte</item>
+        <item>Berlin</item>
+        <item>Bermejal - Los Alamos</item>
+        <item>Betania</item>
+        <item>Blanquizal</item>
+        <item>Bolivariana</item>
+        <item>Bombona N 1</item>
+        <item>Bombona N 2</item>
+        <item>Bosques de San Pablo</item>
+        <item>Boston</item>
+        <item>Boyaca</item>
+        <item>Brasilia</item>
+        <item>Buenos Aires</item>
+        <item>Caicedo</item>
+        <item>Calasania</item>
+        <item>Calasanz</item>
+        <item>Calasanz Parte Alta</item>
+        <item>Caldas</item>
+        <item>Calle Nueva</item>
+        <item>Campo Alegre</item>
+        <item>Campo Amor</item>
+        <item>Campo Valdes N 1</item>
+        <item>Campo Valdes N 2</item>
+        <item>Caribe</item>
+        <item>Carlos E. Restrepo</item>
+        <item>Carpinelo</item>
+        <item>Castilla</item>
+        <item>Castropol</item>
+        <item>Cataluña</item>
+        <item>Cerro Nutibara</item>
         <item>Copacabana</item>
-        <item>Comuna 1(Popular,Santo DOmingo,Granizal, etc)</item>
-        <item>Comuna 2(Santa Cruz,Andalucia,La Francia, etc)</item>
-        <item>Comuna 3(Manrique,Compo Valdes,Santa Ines, etc)</item>
-        <item>Comuna 4(Aranjuez, Moravia, San Isidro, etc)</item>
-        <item>Comuna 5(Castilla,Las Brisas,Caribe, etc)</item>
-        <item>Comuna 6(Doce de Octubre,Pedregal,Picacho,etc)</item>
-        <item>Comuna 7(Robledo,Pilarica,La Aurora, etc)</item>
-        <item>Comuna 8(Villa Hermosa,Enciso,San Antonio,etc)</item>
-        <item>Comuna 9(Buenos Aires,El Salvador,Quinta Linda,etc)</item>
-        <item>Comuna 10(La Candelaria,Prado,Las Palmas,etc)</item>
-        <item>Comuna 11(Laureles, Estadio, Colores, etc)</item>
-        <item>Comuna 12(La America,Calasanz,Santa Lucia,etc)</item>
-        <item>Comuna 13(San Javier,Belencito,Calasania)</item>
-        <item>Comuna 14(Poblado, Tesoro, Aguacatala,etc)</item>
-        <item>Comuna 15(Guayabal, Cristo Rey, Trinidad,etc)</item>
-        <item>Comuna 16(Belen,Ricon,Loma los Bernal,etc)</item>
+        <item>Corazon de Jesus - Barrio Triste</item>
+        <item>Cordoba</item>
+        <item>Cristo Rey</item>
+        <item>Cuarta Brigada</item>
+        <item>Cucaracho</item>
+        <item>Diego Echavarria</item>
+        <item>Doce de Octubre N 1</item>
+        <item>Doce de Octubre N 2</item>
+        <item>Eduardo Santos</item>
+        <item>El Castillo</item>
+        <item>El Chagualo</item>
+        <item>El Compromiso</item>
+        <item>El Corazon</item>
+        <item>El Danubio</item>
+        <item>El Diamante</item>
+        <item>El Diamante</item>
+        <item>El Nogal - Los Almendros</item>
+        <item>El Pesebre</item>
+        <item>El Pinal</item>
+        <item>El Playon de Los Comuneros</item>
+        <item>El Poblado</item>
+        <item>El Pomar</item>
+        <item>El Progreso</item>
+        <item>El Progreso N 2</item>
+        <item>El Raizal</item>
+        <item>El Rincon</item>
+        <item>El Salado</item>
+        <item>El Salvador</item>
+        <item>El Socorro</item>
+        <item>El Tesoro</item>
+        <item>El Triunfo</item>
+        <item>El Velodromo</item>
+        <item>El Volador</item>
+        <item>Enciso</item>
+        <item>Envigado</item>
+        <item>Esfuerzos de Paz N 1</item>
+        <item>Esfuerzos de Paz N 2</item>
+        <item>Estacion Villa</item>
+        <item>Estadio</item>
+        <item>Fatima</item>
+        <item>Ferrini</item>
+        <item>Florencia</item>
+        <item>Florida Nueva</item>
+        <item>Francisco Antonio Zea</item>
+        <item>Fuente Clara</item>
+        <item>Gerona</item>
+        <item>Girardot</item>
+        <item>Golondrinas</item>
+        <item>Granada</item>
+        <item>Granizal</item>
+        <item>Guayabal</item>
+        <item>Guayaquil</item>
+        <item>Hector Abad Gomez</item>
+        <item>Itagui</item>
+        <item>Jesus Nazareno</item>
+        <item>Juan Pablo II</item>
+        <item>Juan XXIII</item>
+        <item>Kennedy</item>
+        <item>La Aguacatala</item>
+        <item>La America</item>
+        <item>La Aurora</item>
+        <item>La Avanzada</item>
+        <item>La Campiña</item>
+        <item>La Candelaria</item>
+        <item>La Castellana</item>
+        <item>La Colina</item>
+        <item>La Cruz</item>
+        <item>La Cuchilla</item>
+        <item>La Divisa</item>
+        <item>La Esperanza</item>
+        <item>La Esperanza N 2</item>
+        <item>La Estrella</item>
+        <item>La Floresta</item>
+        <item>La Florida</item>
+        <item>La Francia</item>
+        <item>La Frontera</item>
+        <item>La Gloria</item>
+        <item>La Honda</item>
+        <item>La Hondonada</item>
+        <item>La Isla</item>
+        <item>La Ladera</item>
+        <item>La Libertad</item>
+        <item>La Loma de Los Bernal</item>
+        <item>La Mansion</item>
+        <item>La Milagrosa</item>
+        <item>La Mota</item>
+        <item>La Palma</item>
+        <item>La Paralela</item>
+        <item>La Pilarica</item>
+        <item>La Piñuela</item>
+        <item>La Pradera</item>
+        <item>La Rosa</item>
+        <item>La Salle</item>
+        <item>La Sierra</item>
+        <item>Lalinde</item>
+        <item>Las Acacias</item>
+        <item>Las Brisas</item>
+        <item>Las Esmeraldas</item>
+        <item>Las Estancias</item>
+        <item>Las Granjas</item>
+        <item>Las Independencias</item>
+        <item>Las Lomas N 1</item>
+        <item>Las Lomas N 2</item>
+        <item>Las Mercedes</item>
+        <item>Las Palmas</item>
+        <item>Las Playas</item>
+        <item>Las Violetas</item>
+        <item>Laureles</item>
+        <item>Llanaditas</item>
+        <item>Lopez de Mesa</item>
+        <item>Lorena</item>
+        <item>Loreto</item>
+        <item>Los Alcazares</item>
+        <item>Los Alpes</item>
+        <item>Los Angeles</item>
+        <item>Los Balsos N 1</item>
+        <item>Los Balsos N 2</item>
+        <item>Los Cerros - El Vergel</item>
+        <item>Los Colores</item>
+        <item>Los Conquistadores</item>
+        <item>Los Mangos</item>
+        <item>Los Naranjos</item>
+        <item>Los Pinos</item>
+        <item>Manila</item>
+        <item>Manrique Central N 1</item>
+        <item>Manrique Central N 2</item>
+        <item>Manrique Oriental</item>
+        <item>Maria Cano - Carambolas</item>
+        <item>Metropolitano</item>
+        <item>Mirador del Doce</item>
+        <item>Miraflores</item>
+        <item>Miranda</item>
+        <item>Miravalle</item>
+        <item>Monteclaro</item>
+        <item>Moravia</item>
+        <item>Moscu N 1</item>
+        <item>Moscu N 2</item>
+        <item>Naranjal</item>
+        <item>Nueva Villa de Aburra</item>
+        <item>Nuevos Conquistadores</item>
+        <item>Ocho de Marzo</item>
+        <item>Olaya Herrera</item>
+        <item>Oriente</item>
+        <item>Pablo VI</item>
+        <item>Pajarito</item>
+        <item>Palenque</item>
+        <item>Palermo</item>
+        <item>Patio Bonito</item>
+        <item>Pedregal</item>
+        <item>Peñitas</item>
+        <item>Perpetuo Socorro</item>
+        <item>Picachito</item>
+        <item>Picacho</item>
+        <item>Popular N 1</item>
+        <item>Popular N 2</item>
+        <item>Prado</item>
+        <item>Quinta Linda</item>
+        <item>Robledo</item>
+        <item>Rosales</item>
+        <item>Sabsaneta</item>
+        <item>San Antonio</item>
+        <item>San Benito</item>
+        <item>San Bernardo</item>
+        <item>San Diego</item>
+        <item>San German</item>
+        <item>San Isidro</item>
+        <item>San Javier N 1</item>
+        <item>San Javier N 2</item>
+        <item>San Joaquin</item>
+        <item>San Jose La Cima N 1</item>
+        <item>San Jose La Cima N 2</item>
+        <item>San Lucas</item>
+        <item>San Martin de Porres</item>
+        <item>San Miguel</item>
+        <item>San Pablo</item>
+        <item>San Pedro</item>
+        <item>Santa Cruz</item>
+        <item>Santa Fe</item>
+        <item>Santa Ines</item>
+        <item>Santa Lucia</item>
+        <item>Santa Margarita</item>
+        <item>Santa Maria de Los Angeles</item>
+        <item>Santa Monica</item>
+        <item>Santa Rosa de Lima</item>
+        <item>Santa Teresita</item>
+        <item>Santander</item>
+        <item>Santo Domingo Savio N 1</item>
+        <item>Santo Domingo Savio N 2</item>
+        <item>Sevilla</item>
+        <item>Simon Bolivar</item>
+        <item>Sucre</item>
+        <item>Suramericana</item>
+        <item>Tejelo</item>
+        <item>Tenche</item>
+        <item>Toscana</item>
+        <item>Trece de Noviembre</item>
+        <item>Tricentenario</item>
+        <item>Trinidad</item>
+        <item>Veinte de Julio</item>
+        <item>Versalles N 1</item>
+        <item>Versalles N 2</item>
+        <item>Villa Carlota</item>
+        <item>Villa de La Iguana</item>
+        <item>Villa del Socorro</item>
+        <item>Villa Flora</item>
+        <item>Villa Guadalupe</item>
+        <item>Villa Hermosa</item>
+        <item>Villa Lilliam</item>
+        <item>Villa Niza</item>
+        <item>Villa Nueva</item>
+        <item>Villa Turbay</item>
+        <item>Villatina</item>
+        <item>Zafra</item>
     </string-array>
 </resources>

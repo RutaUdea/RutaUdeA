@@ -4,7 +4,6 @@ package com.example.myapplication;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
@@ -38,7 +37,7 @@ public class Perfil extends Fragment implements GoogleApiClient.OnConnectionFail
     private TextView nombrePerfil;
     private TextView correoPErfil;
     private TextView celularPerfil;
-    private Button BCerrarSession;
+    private Button bCerrarSession;
     private Button btnActualizar;
     private EditText etNumero;
     private GoogleApiClient googleApiClient;
@@ -59,7 +58,7 @@ public class Perfil extends Fragment implements GoogleApiClient.OnConnectionFail
         fotoPerfil=(ImageView) v.findViewById(R.id.IVfoto);
         nombrePerfil=(TextView) v.findViewById(R.id.TVnombre);
         correoPErfil= (TextView) v.findViewById(R.id.TVcorreo);
-        BCerrarSession=(Button) v.findViewById(R.id.BLogOut);
+        bCerrarSession =(Button) v.findViewById(R.id.BLogOut);
         btnActualizar=(Button) v.findViewById(R.id.btnActualizar);
         etNumero=(EditText) v.findViewById(R.id.etNumero);
 
@@ -75,7 +74,7 @@ public class Perfil extends Fragment implements GoogleApiClient.OnConnectionFail
                 .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
                 .build();
 
-        BCerrarSession.setOnClickListener(new View.OnClickListener() {
+        bCerrarSession.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Auth.GoogleSignInApi.signOut(googleApiClient).setResultCallback(new ResultCallback<Status>() {

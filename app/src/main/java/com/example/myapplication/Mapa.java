@@ -11,9 +11,6 @@ import android.webkit.WebView;
 import android.widget.Button;
 
 import com.example.myapplication.objetos.DialogoZonas;
-import com.example.myapplication.objetos.RutasBD;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 
 public class Mapa extends Fragment {
 

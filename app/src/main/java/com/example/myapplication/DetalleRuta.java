@@ -6,8 +6,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.webkit.WebView;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -49,9 +47,9 @@ public class DetalleRuta extends AppCompatActivity {
         msgWhatsapp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(datos.getNumero().equals("telefono"))
+                if(datos.getNumero().equals("telefono") || datos.getNumero().equals("Null"))
                 {
-                    Toast.makeText(getApplicationContext(),R.string.NoLogOut,Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(),R.string.noNumero,Toast.LENGTH_SHORT).show();
                 }
                 else
                 {

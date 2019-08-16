@@ -1,7 +1,6 @@
 package com.example.myapplication;
 
 import android.Manifest;
-import android.app.Activity;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
@@ -9,11 +8,9 @@ import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
 
 public class MiUbicacion extends Service implements LocationListener {
 
@@ -32,12 +29,12 @@ public class MiUbicacion extends Service implements LocationListener {
     public MiUbicacion(Context c) {
         super();
         this.ctx = c;
-        ObtenerUbicacion();
+        obtenerUbicacion();
     }
 
 
 
-    public void ObtenerUbicacion() {
+    public void obtenerUbicacion() {
         try {
             locationManager = (LocationManager) this.ctx.getSystemService(LOCATION_SERVICE);
             gpsActivo = locationManager.isProviderEnabled(locationManager.GPS_PROVIDER);

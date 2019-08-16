@@ -15,7 +15,6 @@ import com.example.myapplication.R;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import java.time.ZonedDateTime;
 
 public class DialogoZonas {
 
@@ -34,6 +33,7 @@ public class DialogoZonas {
 
         final Spinner spinnerZonas=(Spinner) zonas.findViewById(R.id.spinerZonas);
         Button compartirRuta=(Button) zonas.findViewById(R.id.btnCompartirRuta);
+        Button cancelarC=zonas.findViewById(R.id.btnCancelarC);
 
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(contexto,
                 R.array.zonas, android.R.layout.simple_spinner_item);
@@ -56,6 +56,13 @@ public class DialogoZonas {
                         ,spinnerZonas.getSelectedItem().toString()
                         ,prefs.getString("id","id"));
                 bdReferencia.child(prefs.getString("id","")).setValue(ruta);
+                zonas.dismiss();
+            }
+        });
+
+        cancelarC.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
                 zonas.dismiss();
             }
         });
