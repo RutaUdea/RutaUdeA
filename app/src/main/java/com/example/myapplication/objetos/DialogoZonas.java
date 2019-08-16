@@ -28,7 +28,6 @@ public class DialogoZonas {
         final Dialog zonas=new Dialog(contexto);
         zonas.requestWindowFeature(Window.FEATURE_NO_TITLE);
         zonas.setCancelable(false);
-        zonas.getWindow().setBackgroundDrawable(new ColorDrawable(Color.WHITE));
         zonas.setContentView(R.layout.cuadro_compartir);
 
         final Spinner spinnerZonas=(Spinner) zonas.findViewById(R.id.spinerZonas);
