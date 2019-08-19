@@ -15,6 +15,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.example.myapplication.DetalleRuta;
 import com.example.myapplication.R;
+import com.example.myapplication.Rutas;
 
 import java.util.List;
 
@@ -43,7 +44,7 @@ public class Adaptador extends  RecyclerView.Adapter<Adaptador.cohesiveHolder>{
         String foto=ruta.getFoto();
         Uri myuri = Uri.parse(foto);
         Glide.with(cohesiveHolder.itemView.getContext()).load(myuri).into(cohesiveHolder.fotol);
-        cohesiveHolder.verRuta.setOnClickListener(new View.OnClickListener() {
+        cohesiveHolder.imgRuta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i=new Intent(cohesiveHolder.itemView.getContext(), DetalleRuta.class);
@@ -63,14 +64,14 @@ public class Adaptador extends  RecyclerView.Adapter<Adaptador.cohesiveHolder>{
         TextView nombrel;
         ImageView fotol;
         TextView zonal;
-        Button verRuta;
+        ImageView imgRuta;
 
         public cohesiveHolder(@NonNull View itemView) {
             super(itemView);
             nombrel= itemView.findViewById(R.id.tvNombrel);
             fotol=itemView.findViewById(R.id.ivFotol);
             zonal=itemView.findViewById(R.id.tvPartida);
-            verRuta=itemView.findViewById(R.id.btnVerDetalleRuta);
+            imgRuta=itemView.findViewById(R.id.imgRuts);
         }
     }
 }

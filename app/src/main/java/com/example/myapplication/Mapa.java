@@ -3,6 +3,7 @@ package com.example.myapplication;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,8 +15,10 @@ import com.example.myapplication.objetos.DialogoZonas;
 
 public class Mapa extends Fragment {
 
-    Button fbnCompratir;
     SharedPreferences prefs;
+    FloatingActionButton fbtnCompartir;
+    String lati="6.278967";
+    String longi="-75.5663743";
 
     public Mapa() {
         // Required empty public constructor
@@ -28,11 +31,11 @@ public class Mapa extends Fragment {
         View v=inflater.inflate(R.layout.fragment_mapa, container, false);
 
         MiUbicacion ubicacion1= new MiUbicacion(getActivity().getApplicationContext());
-        String lati=Double.toString(ubicacion1.getLatitud());
-        String longi=Double.toString(ubicacion1.getLongitud());
+        lati=Double.toString(ubicacion1.getLatitud());
+        longi=Double.toString(ubicacion1.getLongitud());
 
         WebView Map = (WebView) v.findViewById(R.id.WMaps);
-        fbnCompratir= (Button) v.findViewById(R.id.fbtnCompartir);
+        fbtnCompartir= (FloatingActionButton) v.findViewById(R.id.fab);
         prefs=this.getActivity().getSharedPreferences("Datos", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = prefs.edit();
 
@@ -42,7 +45,7 @@ public class Mapa extends Fragment {
         editor.putString("ruta",url);
         editor.commit();
 
-        fbnCompratir.setOnClickListener(new View.OnClickListener() {
+        fbtnCompartir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 new DialogoZonas(getActivity());

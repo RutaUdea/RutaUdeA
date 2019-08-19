@@ -2,11 +2,12 @@
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="220dp"
+    android:layout_height="wrap_content"
     android:layout_margin="5dp"
     android:orientation="vertical"
     app:cardCornerRadius="4dp"
-    app:cardElevation="4dp">
+    app:cardElevation="4dp"
+    app:cardBackgroundColor="#99FFFFFF">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -18,17 +19,21 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <ImageView
+            <de.hdodenhof.circleimageview.CircleImageView
+                xmlns:app="http://schemas.android.com/apk/res-auto"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:background="@color/colorAccent"
-                android:id="@+id/ivFotol"/>
+                android:id="@+id/ivFotol"
+                app:civ_border_width="2dp"
+                app:civ_border_color="@color/colorPrimaryDark"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
                 android:textSize="16dp"
                 android:gravity="center"
+                android:textColor="@color/primary_text"
+                android:textStyle="bold"
                 android:layout_marginLeft="10dp"
                 android:id="@+id/tvNombrel"/>
 
@@ -37,7 +42,8 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ruta" />
+            android:src="@drawable/ruta"
+            android:id="@+id/imgRuts"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -47,19 +53,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Inicio"
+                android:textColor="@color/primary_text"
                 android:id="@+id/tvPartida"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/primary_text"
                 android:textAlignment="textEnd"
-                android:text="Universidad de Antioquia"/>
+                android:text="@string/destin"/>
         </LinearLayout>
 
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Ver Detalle de Ruta"
-            android:id="@+id/btnVerDetalleRuta"/>
 
     </LinearLayout>
 

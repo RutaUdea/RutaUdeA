@@ -16,6 +16,7 @@
     <string name="noNumero">No hay numero disponible, utilice otra opcion de contacto</string>
     <string name="btnCompartrir">Compartir Ruta!</string>
     <string name="btnCancelarComp">Cancelar</string>
+    <string name="destin">Universidad de Antioquia</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
