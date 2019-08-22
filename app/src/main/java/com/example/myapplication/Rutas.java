@@ -12,7 +12,6 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
-import android.widget.Toast;
 
 import com.example.myapplication.objetos.Adaptador;
 import com.example.myapplication.objetos.RutasBD;
@@ -54,7 +53,7 @@ public class Rutas extends Fragment {
         final FirebaseDatabase baseDatos= FirebaseDatabase.getInstance();
 
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(v.getContext(),
-                R.array.zonas, R.layout.item_spiner);
+                R.array.zonas_filtro, R.layout.item_spiner);
 
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerZonas.setAdapter(adapter);

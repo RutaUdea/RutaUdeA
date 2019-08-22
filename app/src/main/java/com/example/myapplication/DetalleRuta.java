@@ -2,6 +2,7 @@ package com.example.myapplication;
 
 import android.content.Intent;
 import android.net.Uri;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -9,7 +10,6 @@ import android.webkit.WebView;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.myapplication.objetos.RutasBD;
@@ -49,7 +49,7 @@ public class DetalleRuta extends AppCompatActivity {
             public void onClick(View v) {
                 if(datos.getNumero().equals("telefono") || datos.getNumero().equals("Null"))
                 {
-                    Toast.makeText(getApplicationContext(),R.string.noNumero,Toast.LENGTH_SHORT).show();
+                    Snackbar.make(v,R.string.noNumero,Snackbar.LENGTH_SHORT).show();
                 }
                 else
                 {
@@ -64,7 +64,7 @@ public class DetalleRuta extends AppCompatActivity {
         msgGmail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                sendEmail();
+                sendEmail(v);
             }
         });
 
@@ -79,7 +79,7 @@ public class DetalleRuta extends AppCompatActivity {
 
     }
 
-    protected void sendEmail() {
+    protected void sendEmail(View v) {
         String[] TO = {datos.getCorreo()};
         Intent emailIntent = new Intent(Intent.ACTION_SEND);
         emailIntent.setData(Uri.parse("mailto:"));
@@ -88,8 +88,8 @@ public class DetalleRuta extends AppCompatActivity {
         try {
             startActivity(Intent.createChooser(emailIntent, "Enviar email..."));
         } catch (android.content.ActivityNotFoundException ex) {
-            Toast.makeText(getApplicationContext(),
-                    "No tienes clientes de email instalados.", Toast.LENGTH_SHORT).show();
+            Snackbar.make(v,
+                    "No tienes clientes de email instalados.", Snackbar.LENGTH_SHORT).show();
         }
     }
 }

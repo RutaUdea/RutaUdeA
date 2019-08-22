@@ -4,10 +4,10 @@ package com.example.myapplication;
         import android.content.Intent;
         import android.content.SharedPreferences;
         import android.support.annotation.NonNull;
+        import android.support.design.widget.Snackbar;
         import android.support.v7.app.AppCompatActivity;
         import android.os.Bundle;
         import android.view.View;
-        import android.widget.Toast;
         import com.google.android.gms.auth.api.Auth;
         import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
         import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
@@ -90,13 +90,13 @@ public class LoginGoogle extends AppCompatActivity implements GoogleApiClient.On
                 Auth.GoogleSignInApi.signOut(googleApiClient).setResultCallback(new ResultCallback<Status>() {
                     @Override
                     public void onResult(@NonNull Status status) {
-                        Toast.makeText(getApplicationContext(), R.string.UsarCuentaUdea, Toast.LENGTH_LONG).show();
+                        Snackbar.make(getWindow().getDecorView().getRootView(), R.string.UsarCuentaUdea, Snackbar.LENGTH_LONG).show();
                     }
                 });
             }
 
         } else {
-            Toast.makeText(this, R.string.NoLogin, Toast.LENGTH_SHORT).show();
+            Snackbar.make(getWindow().getDecorView().getRootView(), R.string.NoLogin, Snackbar.LENGTH_SHORT).show();
         }
     }
 

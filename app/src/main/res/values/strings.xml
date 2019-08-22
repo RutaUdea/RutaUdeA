@@ -17,6 +17,7 @@
     <string name="btnCompartrir">Compartir Ruta!</string>
     <string name="btnCancelarComp">Cancelar</string>
     <string name="destin">Universidad de Antioquia</string>
+    <string name="selccionarBarrio">Debes selccionar tu barrio para poder compartir tu ruta!!</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

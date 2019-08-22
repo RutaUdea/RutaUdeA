@@ -3,14 +3,12 @@ package com.example.myapplication.objetos;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
+import android.support.design.widget.Snackbar;
 import android.view.View;
 import android.view.Window;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
-
 import com.example.myapplication.R;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -47,15 +45,21 @@ public class DialogoZonas {
         compartirRuta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ruta=new RutasBD(prefs.getString("nombre","nombre")
-                        ,prefs.getString("correo","correo")
-                        ,prefs.getString("foto","foto")
-                        ,prefs.getString("telefono","telefono")
-                        ,prefs.getString("ruta","ruta")
-                        ,spinnerZonas.getSelectedItem().toString()
-                        ,prefs.getString("id","id"));
-                bdReferencia.child(prefs.getString("id","")).setValue(ruta);
-                zonas.dismiss();
+                String zona=spinnerZonas.getSelectedItem().toString();
+                if(zona.equals("--")){
+                    Snackbar.make(v,R.string.selccionarBarrio,Snackbar.LENGTH_SHORT).show();
+                }
+                else{
+                    ruta=new RutasBD(prefs.getString("nombre","nombre")
+                            ,prefs.getString("correo","correo")
+                            ,prefs.getString("foto","foto")
+                            ,prefs.getString("telefono","telefono")
+                            ,prefs.getString("ruta","ruta")
+                            ,spinnerZonas.getSelectedItem().toString()
+                            ,prefs.getString("id","id"));
+                    bdReferencia.child(prefs.getString("id","")).setValue(ruta);
+                    zonas.dismiss();
+                }
             }
         });
 

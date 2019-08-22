@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,7 +15,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.google.android.gms.auth.api.Auth;
@@ -65,6 +65,16 @@ public class Perfil extends Fragment implements GoogleApiClient.OnConnectionFail
         prefs=this.getActivity().getSharedPreferences("Datos", Context.MODE_PRIVATE);
         final SharedPreferences.Editor editor = prefs.edit();
 
+        String tel=prefs.getString("telefono","None");
+        if(tel.equals("None") || tel.equals("Null")){
+            etNumero.setHint(R.string.DefaultWhatsapp);
+        }
+        else
+        {
+            etNumero.setText(tel);
+        }
+
+
         GoogleSignInOptions gso= new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestEmail()
                 .build();
@@ -76,14 +86,14 @@ public class Perfil extends Fragment implements GoogleApiClient.OnConnectionFail
 
         bCerrarSession.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(final View v) {
                 Auth.GoogleSignInApi.signOut(googleApiClient).setResultCallback(new ResultCallback<Status>() {
                     @Override
                     public void onResult(@NonNull Status status) {
                         if(status.isSuccess()){
                             goLoginScreen();
                         }else{
-                            Toast.makeText(getContext(),R.string.NoLogOut,Toast.LENGTH_SHORT).show();
+                            Snackbar.make(v,R.string.NoLogOut,Snackbar.LENGTH_SHORT).show();
                         }
                     }
                 });
