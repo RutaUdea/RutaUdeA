@@ -10,11 +10,12 @@ public class RutasBD  implements Serializable {
     private String ruta;
     private String zona;
     private String id;
+    private String horarios;
 
     public RutasBD() {
     }
 
-    public RutasBD(String nombre, String correo, String foto, String numero, String ruta, String zona, String id) {
+    public RutasBD(String nombre, String correo, String foto, String numero, String ruta, String zona, String id,String horarios) {
         this.nombre = nombre;
         this.correo = correo;
         this.foto = foto;
@@ -22,6 +23,15 @@ public class RutasBD  implements Serializable {
         this.ruta = ruta;
         this.zona= zona;
         this.id=id;
+        this.horarios=horarios;
+    }
+
+    public String getHorarios() {
+        return horarios;
+    }
+
+    public void setHorarios(String horarios) {
+        this.horarios = horarios;
     }
 
     public String getId() {

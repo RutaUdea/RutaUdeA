@@ -18,11 +18,18 @@ public class DetalleRuta extends AppCompatActivity {
 
     RutasBD datos;
     TextView nombre;
+    TextView hLunes;
+    TextView hMartes;
+    TextView hMiercoles;
+    TextView hJueves;
+    TextView hViernes;
+    TextView hSabado;
     ImageView foto;
     WebView mapa;
     ImageButton msgWhatsapp;
     ImageButton msgGmail;
     ImageButton msgHangout;
+    String horarios;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,11 +38,28 @@ public class DetalleRuta extends AppCompatActivity {
         datos=(RutasBD) getIntent().getSerializableExtra("RutasBD");
 
         nombre= (TextView) findViewById(R.id.detalleNombre);
+        hLunes= findViewById(R.id.tvLunes);
+        hMartes= findViewById(R.id.tvMartes);
+        hMiercoles= findViewById(R.id.tvMiercoles);
+        hJueves= findViewById(R.id.tvJueves);
+        hViernes= findViewById(R.id.tvViernes);
+        hSabado= findViewById(R.id.tvSabado);
         foto=(ImageView) findViewById(R.id.foroDetalle);
         mapa=(WebView) findViewById(R.id.wvDetalle);
         msgWhatsapp=(ImageButton) findViewById(R.id.imgBtnWhatsApp);
         msgGmail=(ImageButton) findViewById(R.id.imgBtnCorreo);
         msgHangout=(ImageButton) findViewById(R.id.imgBtnHangouts);
+
+        horarios=datos.getHorarios();
+
+        String[] horariosS=horarios.split(",");
+
+        hLunes.setText(horariosS[0]);
+        hMartes.setText(horariosS[1]);
+        hMiercoles.setText(horariosS[2]);
+        hJueves.setText(horariosS[3]);
+        hViernes.setText(horariosS[4]);
+        hSabado.setText(horariosS[5]);
 
         nombre.setText(datos.getNombre());
         Uri fotoU= Uri.parse(datos.getFoto());

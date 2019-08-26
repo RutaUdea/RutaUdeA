@@ -29,6 +29,12 @@ public class DialogoZonas {
         zonas.setContentView(R.layout.cuadro_compartir);
 
         final Spinner spinnerZonas=(Spinner) zonas.findViewById(R.id.spinerZonas);
+        final Spinner spinnerL=(Spinner) zonas.findViewById(R.id.spinerL);
+        final Spinner spinnerM=(Spinner) zonas.findViewById(R.id.spinerM);
+        final Spinner spinnerW=(Spinner) zonas.findViewById(R.id.spinerW);
+        final Spinner spinnerJ=(Spinner) zonas.findViewById(R.id.spinerJ);
+        final Spinner spinnerV=(Spinner) zonas.findViewById(R.id.spinerV);
+        final Spinner spinnerS=(Spinner) zonas.findViewById(R.id.spinerS);
         Button compartirRuta=(Button) zonas.findViewById(R.id.btnCompartirRuta);
         Button cancelarC=zonas.findViewById(R.id.btnCancelarC);
 
@@ -37,6 +43,15 @@ public class DialogoZonas {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerZonas.setAdapter(adapter);
 
+        ArrayAdapter<CharSequence> adapterH = ArrayAdapter.createFromResource(contexto,
+                R.array.horarios, R.layout.itemspinerh);
+        adapterH.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerL.setAdapter(adapterH);
+        spinnerM.setAdapter(adapterH);
+        spinnerW.setAdapter(adapterH);
+        spinnerJ.setAdapter(adapterH);
+        spinnerV.setAdapter(adapterH);
+        spinnerS.setAdapter(adapterH);
 
         baseDatos=FirebaseDatabase.getInstance();
         bdReferencia=baseDatos.getReference();
@@ -45,6 +60,7 @@ public class DialogoZonas {
         compartirRuta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String horariosH= spinnerL.getSelectedItem().toString()+","+spinnerM.getSelectedItem().toString()+","+spinnerW.getSelectedItem().toString()+","+spinnerJ.getSelectedItem().toString()+","+spinnerV.getSelectedItem().toString()+","+spinnerS.getSelectedItem().toString()+",";
                 String zona=spinnerZonas.getSelectedItem().toString();
                 if(zona.equals("--")){
                     Snackbar.make(v,R.string.selccionarBarrio,Snackbar.LENGTH_SHORT).show();
@@ -55,8 +71,9 @@ public class DialogoZonas {
                             ,prefs.getString("foto","foto")
                             ,prefs.getString("telefono","telefono")
                             ,prefs.getString("ruta","ruta")
-                            ,spinnerZonas.getSelectedItem().toString()
-                            ,prefs.getString("id","id"));
+                            ,zona
+                            ,prefs.getString("id","id")
+                            ,horariosH);
                     bdReferencia.child(prefs.getString("id","")).setValue(ruta);
                     zonas.dismiss();
                 }
