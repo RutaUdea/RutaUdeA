@@ -10,7 +10,12 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.os.IBinder;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
+import android.util.Log;
+import android.widget.Toast;
+
+import static com.bumptech.glide.gifdecoder.GifHeaderParser.TAG;
 
 public class MiUbicacion extends Service implements LocationListener {
 
@@ -44,13 +49,21 @@ public class MiUbicacion extends Service implements LocationListener {
             if (ActivityCompat.checkSelfPermission(this.ctx.getApplicationContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this.ctx, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
                 return;
             }
-            locationManager.requestLocationUpdates(locationManager.GPS_PROVIDER
-                    , 1000 * 60
-                    , 10
-                    , this);
+            try
+            {
+                locationManager.requestLocationUpdates(locationManager.GPS_PROVIDER
+                        , 1000 * 60
+                        , 10
+                        , this);
+            }catch (SecurityException ex){}
+
             location=locationManager.getLastKnownLocation(locationManager.GPS_PROVIDER);
             longitud=location.getLongitude();
             latitud=location.getLatitude();
+            if(location.hasAccuracy())
+            {
+                locationManager.removeUpdates(this);
+            }
         }
     }
 

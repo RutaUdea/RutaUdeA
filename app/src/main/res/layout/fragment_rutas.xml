@@ -40,12 +40,13 @@
                 android:padding="5dip"
                 android:text="Buscar Por Barrio:   "/>
 
-            <Spinner
+            <AutoCompleteTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/spinerZonasRutas"
-                android:layout_gravity="center">
-            </Spinner>
+                android:layout_gravity="center"
+                android:text="Todos">
+            </AutoCompleteTextView>
 
         </LinearLayout>
 

@@ -6,11 +6,16 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
+import android.widget.ListAdapter;
 import android.widget.Spinner;
 
 import com.example.myapplication.objetos.Adaptador;
@@ -46,7 +51,7 @@ public class Rutas extends Fragment {
         View v=inflater.inflate(R.layout.fragment_rutas, container, false);
         rv= (RecyclerView) v.findViewById(R.id.rvRutas);
         rv.setLayoutManager(new LinearLayoutManager(getContext()));
-        final Spinner spinnerZonas=(Spinner) v.findViewById(R.id.spinerZonasRutas);
+        final AutoCompleteTextView spinnerZonas=(AutoCompleteTextView) v.findViewById(R.id.spinerZonasRutas);
 
         rutas= new ArrayList<>();
 
@@ -58,17 +63,43 @@ public class Rutas extends Fragment {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerZonas.setAdapter(adapter);
 
-
-
-        restriccion=spinnerZonas.getSelectedItem().toString();
+        restriccion=spinnerZonas.getText().toString();
 
         adaptador=new Adaptador(rutas);
         rv.setAdapter(adaptador);
 
-        spinnerZonas.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        baseDatos.getReference().getRoot().addValueEventListener(new ValueEventListener() {
             @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                restriccion =spinnerZonas.getSelectedItem().toString();
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                rutas.removeAll(rutas);
+                for (DataSnapshot snapshot :
+                        dataSnapshot.getChildren()) {
+                    RutasBD ruta=snapshot.getValue(RutasBD.class);
+                    rutas.add(ruta);
+                }
+                adaptador.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+        spinnerZonas.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                restriccion =spinnerZonas.getText().toString();
                 if(restriccion.equals("Todos"))
                 {
                     baseDatos.getReference().getRoot().addValueEventListener(new ValueEventListener() {
@@ -110,12 +141,9 @@ public class Rutas extends Fragment {
                 }
 
             }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
         });
+
+
 
         return v;
     }

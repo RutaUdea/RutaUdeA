@@ -7,6 +7,7 @@ import android.support.design.widget.Snackbar;
 import android.view.View;
 import android.view.Window;
 import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.Spinner;
 import com.example.myapplication.R;
@@ -28,13 +29,19 @@ public class DialogoZonas {
         zonas.setCancelable(false);
         zonas.setContentView(R.layout.cuadro_compartir);
 
-        final Spinner spinnerZonas=(Spinner) zonas.findViewById(R.id.spinerZonas);
+        final AutoCompleteTextView spinnerZonas=(AutoCompleteTextView) zonas.findViewById(R.id.spinerZonas);
         final Spinner spinnerL=(Spinner) zonas.findViewById(R.id.spinerL);
         final Spinner spinnerM=(Spinner) zonas.findViewById(R.id.spinerM);
         final Spinner spinnerW=(Spinner) zonas.findViewById(R.id.spinerW);
         final Spinner spinnerJ=(Spinner) zonas.findViewById(R.id.spinerJ);
         final Spinner spinnerV=(Spinner) zonas.findViewById(R.id.spinerV);
         final Spinner spinnerS=(Spinner) zonas.findViewById(R.id.spinerS);
+        final Spinner spinnerLR=(Spinner) zonas.findViewById(R.id.spinerLR);
+        final Spinner spinnerMR=(Spinner) zonas.findViewById(R.id.spinerMR);
+        final Spinner spinnerWR=(Spinner) zonas.findViewById(R.id.spinerWR);
+        final Spinner spinnerJR=(Spinner) zonas.findViewById(R.id.spinerJR);
+        final Spinner spinnerVR=(Spinner) zonas.findViewById(R.id.spinerVR);
+        final Spinner spinnerSR=(Spinner) zonas.findViewById(R.id.spinerSR);
         Button compartirRuta=(Button) zonas.findViewById(R.id.btnCompartirRuta);
         Button cancelarC=zonas.findViewById(R.id.btnCancelarC);
 
@@ -52,6 +59,12 @@ public class DialogoZonas {
         spinnerJ.setAdapter(adapterH);
         spinnerV.setAdapter(adapterH);
         spinnerS.setAdapter(adapterH);
+        spinnerLR.setAdapter(adapterH);
+        spinnerMR.setAdapter(adapterH);
+        spinnerWR.setAdapter(adapterH);
+        spinnerJR.setAdapter(adapterH);
+        spinnerVR.setAdapter(adapterH);
+        spinnerSR.setAdapter(adapterH);
 
         baseDatos=FirebaseDatabase.getInstance();
         bdReferencia=baseDatos.getReference();
@@ -60,9 +73,9 @@ public class DialogoZonas {
         compartirRuta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String horariosH= spinnerL.getSelectedItem().toString()+","+spinnerM.getSelectedItem().toString()+","+spinnerW.getSelectedItem().toString()+","+spinnerJ.getSelectedItem().toString()+","+spinnerV.getSelectedItem().toString()+","+spinnerS.getSelectedItem().toString()+",";
-                String zona=spinnerZonas.getSelectedItem().toString();
-                if(zona.equals("--")){
+                String horariosH= spinnerL.getSelectedItem().toString()+","+spinnerM.getSelectedItem().toString()+","+spinnerW.getSelectedItem().toString()+","+spinnerJ.getSelectedItem().toString()+","+spinnerV.getSelectedItem().toString()+","+spinnerS.getSelectedItem().toString()+","+spinnerLR.getSelectedItem().toString()+","+spinnerMR.getSelectedItem().toString()+","+spinnerWR.getSelectedItem().toString()+","+spinnerJR.getSelectedItem().toString()+","+spinnerVR.getSelectedItem().toString()+","+spinnerSR.getSelectedItem().toString()+",";
+                String zona=spinnerZonas.getText().toString();
+                if(zona.equals("")){
                     Snackbar.make(v,R.string.selccionarBarrio,Snackbar.LENGTH_SHORT).show();
                 }
                 else{

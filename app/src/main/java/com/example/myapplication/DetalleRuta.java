@@ -24,6 +24,12 @@ public class DetalleRuta extends AppCompatActivity {
     TextView hJueves;
     TextView hViernes;
     TextView hSabado;
+    TextView hLunesR;
+    TextView hMartesR;
+    TextView hMiercolesR;
+    TextView hJuevesR;
+    TextView hViernesR;
+    TextView hSabadoR;
     ImageView foto;
     WebView mapa;
     ImageButton msgWhatsapp;
@@ -44,6 +50,12 @@ public class DetalleRuta extends AppCompatActivity {
         hJueves= findViewById(R.id.tvJueves);
         hViernes= findViewById(R.id.tvViernes);
         hSabado= findViewById(R.id.tvSabado);
+        hLunesR= findViewById(R.id.tvLunesR);
+        hMartesR= findViewById(R.id.tvMartesR);
+        hMiercolesR= findViewById(R.id.tvMiercolesR);
+        hJuevesR= findViewById(R.id.tvJuevesR);
+        hViernesR= findViewById(R.id.tvViernesR);
+        hSabadoR= findViewById(R.id.tvSabadoR);
         foto=(ImageView) findViewById(R.id.foroDetalle);
         mapa=(WebView) findViewById(R.id.wvDetalle);
         msgWhatsapp=(ImageButton) findViewById(R.id.imgBtnWhatsApp);
@@ -60,6 +72,12 @@ public class DetalleRuta extends AppCompatActivity {
         hJueves.setText(horariosS[3]);
         hViernes.setText(horariosS[4]);
         hSabado.setText(horariosS[5]);
+        hLunesR.setText(horariosS[6]);
+        hMartesR.setText(horariosS[7]);
+        hMiercolesR.setText(horariosS[8]);
+        hJuevesR.setText(horariosS[9]);
+        hViernesR.setText(horariosS[10]);
+        hSabadoR.setText(horariosS[11]);
 
         nombre.setText(datos.getNombre());
         Uri fotoU= Uri.parse(datos.getFoto());

@@ -10,7 +10,8 @@
     <WebView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/wvDetalle" />
+        android:id="@+id/wvDetalle"
+        android:layout_marginTop="40dp"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -94,7 +95,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Horarios en los que voy hacia la U:"
+                    android:text="Horarios en los que voy y vuelvo a la U:"
                     android:layout_gravity="center"
                     android:textStyle="bold"
                     android:textColor="@color/blanco"/>
@@ -113,6 +114,35 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
+                            android:text=""
+                            android:textColor="@color/blanco"
+                            android:textStyle="bold"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/blanco"
+                            android:text="Voy a las:  "
+                            android:textStyle="bold"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/blanco"
+                            android:text="Vuelvo a las:  "
+                            android:textStyle="bold"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
                             android:text="L"
                             android:textColor="@color/blanco"
                             android:textStyle="bold"/>
@@ -121,6 +151,13 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:id="@+id/tvLunes"
+                            android:textColor="@color/blanco"
+                            android:textStyle="bold"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/tvLunesR"
                             android:textColor="@color/blanco"
                             android:textStyle="bold"/>
 
@@ -147,6 +184,13 @@
                             android:textColor="@color/blanco"
                             android:textStyle="bold"/>
 
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/tvMartesR"
+                            android:textColor="@color/blanco"
+                            android:textStyle="bold"/>
+
                     </LinearLayout>
 
                     <LinearLayout
@@ -167,6 +211,13 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:id="@+id/tvMiercoles"
+                            android:textColor="@color/blanco"
+                            android:textStyle="bold"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/tvMiercolesR"
                             android:textColor="@color/blanco"
                             android:textStyle="bold"/>
 
@@ -193,6 +244,13 @@
                             android:textColor="@color/blanco"
                             android:textStyle="bold"/>
 
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/tvJuevesR"
+                            android:textColor="@color/blanco"
+                            android:textStyle="bold"/>
+
                     </LinearLayout>
 
                     <LinearLayout
@@ -213,6 +271,13 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:id="@+id/tvViernes"
+                            android:textColor="@color/blanco"
+                            android:textStyle="bold"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/tvViernesR"
                             android:textColor="@color/blanco"
                             android:textStyle="bold"/>
 
@@ -239,13 +304,22 @@
                             android:textColor="@color/blanco"
                             android:textStyle="bold"/>
 
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/tvSabadoR"
+                            android:textColor="@color/blanco"
+                            android:textStyle="bold"/>
+
                     </LinearLayout>
 
 
                 </LinearLayout>
 
 
+
             </LinearLayout>
+
 
         </LinearLayout>
 
