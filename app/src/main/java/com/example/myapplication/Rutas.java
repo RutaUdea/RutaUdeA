@@ -58,7 +58,7 @@ public class Rutas extends Fragment {
         final FirebaseDatabase baseDatos= FirebaseDatabase.getInstance();
 
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(v.getContext(),
-                R.array.zonas_filtro, R.layout.item_spiner);
+                R.array.zonas_filtro, android.R.layout.simple_spinner_dropdown_item);
 
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerZonas.setAdapter(adapter);

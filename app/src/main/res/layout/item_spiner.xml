@@ -7,5 +7,4 @@
     android:gravity="center"
     android:textColor="@color/blanco"
     android:textStyle="bold"
-    android:paddingBottom="5dip"
     />

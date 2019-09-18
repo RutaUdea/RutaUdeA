@@ -45,7 +45,8 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/spinerZonasRutas"
                 android:layout_gravity="center"
-                android:text="Todos">
+                android:text="Todos"
+                android:textColor="@color/blanco">
             </AutoCompleteTextView>
 
         </LinearLayout>
