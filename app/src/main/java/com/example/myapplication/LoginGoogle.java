@@ -84,6 +84,11 @@ public class LoginGoogle extends AppCompatActivity implements GoogleApiClient.On
             String correo=cuenta.getEmail();
             int resultado=correo.indexOf("udea.edu.co");
             if(resultado!=-1){
+                editor.putString("nombre",cuenta.getDisplayName());
+                editor.putString("correo",cuenta.getEmail());
+                editor.putString("id",cuenta.getId());
+                editor.putString("foto",cuenta.getPhotoUrl().toString());
+                editor.commit();
                 goMainScreen();
             }
             else{
