@@ -32,7 +32,6 @@ public class MainActivity extends AppCompatActivity {
             super.recreate();
         }
 
-
         fm.beginTransaction().add(R.id.Fragmet, fragment3, "3").hide(fragment3).commit();
         fm.beginTransaction().add(R.id.Fragmet, fragment2, "2").hide(fragment2).commit();
         fm.beginTransaction().add(R.id.Fragmet,fragment1, "1").commit();
