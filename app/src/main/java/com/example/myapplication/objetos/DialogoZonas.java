@@ -1,5 +1,6 @@
 package com.example.myapplication.objetos;
 
+import android.app.ActionBar;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -101,6 +102,7 @@ public class DialogoZonas {
         });
 
         zonas.show();
+        zonas.getWindow().setLayout(ActionBar.LayoutParams.MATCH_PARENT, ActionBar.LayoutParams.WRAP_CONTENT);
 
 
     }

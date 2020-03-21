@@ -4,6 +4,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/colorPrimaryDark"/>
 
     <TextView
         android:layout_marginTop="10dp"
@@ -11,7 +15,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:textStyle="bold"
-        android:text="Seleccione la Zona donde Inicia su Ruta:"/>
+        android:text="Seleccione la Zona donde Inicia tu Ruta:"/>
 
     <AutoCompleteTextView
         android:layout_marginTop="10dp"
@@ -319,14 +323,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/btnCompartrir"
-        android:id="@+id/btnCompartirRuta"
-        android:layout_marginBottom="10dp"/>
+        android:id="@+id/btnCompartirRuta"/>
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/btnCancelarComp"
-        android:id="@+id/btnCancelarC"
-        android:layout_marginBottom="10dp"/>
+        android:id="@+id/btnCancelarC"/>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/colorPrimaryDark"/>
 
 </LinearLayout>
