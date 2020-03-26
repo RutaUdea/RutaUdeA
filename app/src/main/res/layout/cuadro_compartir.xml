@@ -1,13 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<android.support.v7.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    app:cardElevation="4dp"
+    app:cardCornerRadius="30px"
+    android:paddingTop="10dp"
+    android:paddingRight="10dp">
+
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:background="@color/colorPrimaryDark"/>
+        android:layout_height="83dp"
+        android:src="@drawable/backgroundbacktop"
+        android:layout_gravity="top"/>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="176dp"
+        android:src="@drawable/backgroundback"
+        android:layout_gravity="bottom"/>
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_gravity="center">
+
 
     <TextView
         android:layout_marginTop="10dp"
@@ -15,6 +35,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:textStyle="bold"
+        android:textSize="17dp"
         android:text="Seleccione la Zona donde Inicia tu Ruta:"/>
 
     <AutoCompleteTextView
@@ -25,297 +46,476 @@
     </AutoCompleteTextView>
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
+        android:gravity="center"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
         android:layout_gravity="center"
         android:text="Selecciona los Horarios en los que vas a la U"
-        android:textStyle="bold"/>
+        android:textStyle="bold"
+        android:textSize="17dp"/>
 
-    <LinearLayout
-        android:layout_width="wrap_content"
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_gravity="center">
+        app:cardElevation="4dp"
+        app:cardCornerRadius="30px"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp">
 
-        <LinearLayout
-        android:layout_width="wrap_content"
+    <TableLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:elevation="10dp">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorPrimaryDark">
+
+            <View android:layout_width="1dp"
+                android:background="@color/colorPrimaryDark"
+                android:layout_height="match_parent"/>
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_weight="16.66"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="L"/>
+                android:textSize="14dp"
+                android:text="Lun"
+                android:gravity="center"
+                android:textColor="@color/blanco"
+                android:textStyle="bold"/>
 
-            <Spinner
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/spinerL"
-                android:layout_gravity="center">
-            </Spinner>
-
-        </LinearLayout>
-
-
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            <View android:layout_width="1dp"
+                android:background="@color/blanco"
+                android:layout_height="match_parent"/>
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_weight="16.66"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="M"/>
+                android:textSize="14dp"
+                android:text="Mar"
+                android:gravity="center"
+                android:textColor="@color/blanco"
+                android:textStyle="bold"/>
 
-            <Spinner
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/spinerM"
-                android:layout_gravity="center">
-            </Spinner>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
+            <View android:layout_width="1dp"
+                android:background="@color/blanco"
+                android:layout_height="match_parent"/>
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_weight="16.66"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="W"/>
+                android:textSize="14dp"
+                android:text="Mie"
+                android:gravity="center"
+                android:textColor="@color/blanco"
+                android:textStyle="bold"/>
+
+            <View android:layout_width="1dp"
+                android:background="@color/colorPrimaryDark"
+                android:layout_height="match_parent"/>
+
+        </TableRow>
+
+        <View
+            android:layout_width="match_parent"
+            android:background="@color/colorPrimaryDark"
+            android:layout_height="1dp" />
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <View android:layout_width="1dp"
+                android:background="@color/colorPrimaryDark"
+                android:layout_height="match_parent"/>
 
             <Spinner
-                android:layout_width="wrap_content"
+                android:layout_weight="16.66"
                 android:layout_height="wrap_content"
-                android:id="@+id/spinerW"
-                android:layout_gravity="center">
-            </Spinner>
+                android:textSize="14dp"
+                android:text="Lun"
+                android:textColor="@color/primary_text"
+                android:gravity="center"
+                android:id="@+id/spinerL"/>
 
-        </LinearLayout>
+            <View android:layout_width="1dp"
+                android:background="@color/colorPrimaryDark"
+                android:layout_height="match_parent"/>
 
-    </LinearLayout>
+            <Spinner
+                android:layout_weight="16.66"
+                android:layout_height="wrap_content"
+                android:textSize="14dp"
+                android:text="Lun"
+                android:textColor="@color/primary_text"
+                android:gravity="center"
+                android:id="@+id/spinerM"/>
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_gravity="center">
+            <View android:layout_width="1dp"
+                android:background="@color/colorPrimaryDark"
+                android:layout_height="match_parent"/>
+            <Spinner
+                android:layout_weight="16.66"
+                android:layout_height="wrap_content"
+                android:textSize="14dp"
+                android:text="Lun"
+                android:textColor="@color/primary_text"
+                android:gravity="center"
+                android:id="@+id/spinerW"/>
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            <View android:layout_width="1dp"
+                android:background="@color/colorPrimaryDark"
+                android:layout_height="match_parent"/>
 
+        </TableRow>
+
+        <View
+            android:layout_width="match_parent"
+            android:background="@color/colorPrimaryDark"
+            android:layout_height="1dp" />
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorPrimaryDark">
+
+            <View android:layout_width="1dp"
+                android:background="@color/colorPrimaryDark"
+                android:layout_height="match_parent"/>
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_weight="16.66"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="J"/>
+                android:textSize="14dp"
+                android:text="Jue"
+                android:gravity="center"
+                android:textColor="@color/blanco"
+                android:textStyle="bold"/>
+
+            <View android:layout_width="1dp"
+                android:background="@color/blanco"
+                android:layout_height="match_parent"/>
+            <TextView
+                android:layout_weight="16.66"
+                android:layout_height="wrap_content"
+                android:textSize="14dp"
+                android:text="Vie"
+                android:gravity="center"
+                android:textColor="@color/blanco"
+                android:textStyle="bold"/>
+
+            <View android:layout_width="1dp"
+                android:background="@color/blanco"
+                android:layout_height="match_parent"/>
+            <TextView
+                android:layout_weight="16.66"
+                android:layout_height="wrap_content"
+                android:textSize="14dp"
+                android:text="Sab"
+                android:gravity="center"
+                android:textColor="@color/blanco"
+                android:textStyle="bold"/>
+
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:background="@color/colorPrimaryDark" />
+        </TableRow>
+
+        <View
+            android:layout_width="match_parent"
+            android:background="@color/colorPrimaryDark"
+            android:layout_height="1dp" />
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <View android:layout_width="1dp"
+                android:background="@color/colorPrimaryDark"
+                android:layout_height="match_parent"/>
 
             <Spinner
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:id="@+id/spinerJ"
-                android:layout_gravity="center">
-            </Spinner>
+                android:layout_height="match_parent"
+                android:layout_weight="16.66"
+                android:gravity="center"
+                android:textColor="@color/primary_text"
+                android:text="Lun"
+                android:textSize="14dp" />
 
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="V"/>
-
+            <View android:layout_width="1dp"
+                android:background="@color/colorPrimaryDark"
+                android:layout_height="match_parent"/>
             <Spinner
-                android:layout_width="wrap_content"
+                android:layout_weight="16.66"
                 android:layout_height="wrap_content"
-                android:id="@+id/spinerV"
-                android:layout_gravity="center">
-            </Spinner>
+                android:textSize="14dp"
+                android:textColor="@color/primary_text"
+                android:text="Lun"
+                android:gravity="center"
+                android:id="@+id/spinerV"/>
 
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="S"/>
-
+            <View android:layout_width="1dp"
+                android:background="@color/colorPrimaryDark"
+                android:layout_height="match_parent"/>
             <Spinner
-                android:layout_width="wrap_content"
+                android:layout_weight="16.66"
                 android:layout_height="wrap_content"
-                android:id="@+id/spinerS"
-                android:layout_gravity="center">
-            </Spinner>
+                android:textSize="14dp"
+                android:textColor="@color/primary_text"
+                android:text="Lun"
+                android:gravity="center"
+                android:id="@+id/spinerS"/>
 
-        </LinearLayout>
+            <View android:layout_width="1dp"
+                android:background="@color/colorPrimaryDark"
+                android:layout_height="match_parent"/>
+        </TableRow>
 
-    </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:background="@color/colorPrimaryDark"
+            android:layout_height="1dp" />
+
+    </TableLayout>
+    </android.support.v7.widget.CardView>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
         android:layout_gravity="center"
         android:text="Horarios en los que sales de la U"
-        android:textStyle="bold"/>
+        android:textStyle="bold"
+        android:textSize="17dp"/>
 
 
-    <LinearLayout
-        android:layout_width="wrap_content"
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_gravity="center">
+        app:cardElevation="4dp"
+        app:cardCornerRadius="30px"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp">
 
-        <LinearLayout
-            android:layout_width="wrap_content"
+        <TableLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:elevation="10dp">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="L"/>
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/colorPrimaryDark">
 
-            <Spinner
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/spinerLR"
-                android:layout_gravity="center">
-            </Spinner>
+                <View android:layout_width="1dp"
+                    android:background="@color/colorPrimaryDark"
+                    android:layout_height="match_parent"/>
 
-        </LinearLayout>
+                <TextView
+                    android:layout_weight="16.66"
+                    android:layout_height="wrap_content"
+                    android:textSize="14dp"
+                    android:text="Lun"
+                    android:gravity="center"
+                    android:textColor="@color/blanco"
+                    android:textStyle="bold"/>
 
+                <View android:layout_width="1dp"
+                    android:background="@color/blanco"
+                    android:layout_height="match_parent"/>
 
+                <TextView
+                    android:layout_weight="16.66"
+                    android:layout_height="wrap_content"
+                    android:textSize="14dp"
+                    android:text="Mar"
+                    android:gravity="center"
+                    android:textColor="@color/blanco"
+                    android:textStyle="bold"/>
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+                <View android:layout_width="1dp"
+                    android:background="@color/blanco"
+                    android:layout_height="match_parent"/>
+                <TextView
+                    android:layout_weight="16.66"
+                    android:layout_height="wrap_content"
+                    android:textSize="14dp"
+                    android:text="Mie"
+                    android:gravity="center"
+                    android:textColor="@color/blanco"
+                    android:textStyle="bold"/>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="M"/>
+                <View android:layout_width="1dp"
+                    android:background="@color/colorPrimaryDark"
+                    android:layout_height="match_parent"/>
 
-            <Spinner
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/spinerMR"
-                android:layout_gravity="center">
-            </Spinner>
+            </TableRow>
 
-        </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:background="@color/colorPrimaryDark"
+                android:layout_height="1dp" />
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="W"/>
+                <View android:layout_width="1dp"
+                    android:background="@color/colorPrimaryDark"
+                    android:layout_height="match_parent"/>
 
-            <Spinner
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/spinerWR"
-                android:layout_gravity="center">
-            </Spinner>
+                <Spinner
+                    android:layout_weight="16.66"
+                    android:layout_height="wrap_content"
+                    android:textSize="14dp"
+                    android:text="Lun"
+                    android:textColor="@color/primary_text"
+                    android:gravity="center"
+                    android:id="@+id/spinerLR"/>
 
-        </LinearLayout>
+                <View android:layout_width="1dp"
+                    android:background="@color/colorPrimaryDark"
+                    android:layout_height="match_parent"/>
 
-    </LinearLayout>
+                <Spinner
+                    android:layout_weight="16.66"
+                    android:layout_height="wrap_content"
+                    android:textSize="14dp"
+                    android:text="Lun"
+                    android:textColor="@color/primary_text"
+                    android:gravity="center"
+                    android:id="@+id/spinerMR"/>
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_gravity="center">
+                <View android:layout_width="1dp"
+                    android:background="@color/colorPrimaryDark"
+                    android:layout_height="match_parent"/>
+                <Spinner
+                    android:layout_weight="16.66"
+                    android:layout_height="wrap_content"
+                    android:textSize="14dp"
+                    android:text="Lun"
+                    android:textColor="@color/primary_text"
+                    android:gravity="center"
+                    android:id="@+id/spinerWR"/>
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+                <View android:layout_width="1dp"
+                    android:background="@color/colorPrimaryDark"
+                    android:layout_height="match_parent"/>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="J"/>
+            </TableRow>
 
-            <Spinner
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/spinerJR"
-                android:layout_gravity="center">
-            </Spinner>
+            <View
+                android:layout_width="match_parent"
+                android:background="@color/colorPrimaryDark"
+                android:layout_height="1dp" />
 
-        </LinearLayout>
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/colorPrimaryDark">
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+                <View android:layout_width="1dp"
+                    android:background="@color/colorPrimaryDark"
+                    android:layout_height="match_parent"/>
+                <TextView
+                    android:layout_weight="16.66"
+                    android:layout_height="wrap_content"
+                    android:textSize="14dp"
+                    android:text="Jue"
+                    android:gravity="center"
+                    android:textColor="@color/blanco"
+                    android:textStyle="bold"/>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="V"/>
+                <View android:layout_width="1dp"
+                    android:background="@color/blanco"
+                    android:layout_height="match_parent"/>
+                <TextView
+                    android:layout_weight="16.66"
+                    android:layout_height="wrap_content"
+                    android:textSize="14dp"
+                    android:text="Vie"
+                    android:gravity="center"
+                    android:textColor="@color/blanco"
+                    android:textStyle="bold"/>
 
-            <Spinner
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/spinerVR"
-                android:layout_gravity="center">
-            </Spinner>
+                <View android:layout_width="1dp"
+                    android:background="@color/blanco"
+                    android:layout_height="match_parent"/>
+                <TextView
+                    android:layout_weight="16.66"
+                    android:layout_height="wrap_content"
+                    android:textSize="14dp"
+                    android:text="Sab"
+                    android:gravity="center"
+                    android:textColor="@color/blanco"
+                    android:textStyle="bold"/>
 
-        </LinearLayout>
+                <View
+                    android:layout_width="2dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorPrimaryDark" />
+            </TableRow>
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            <View
+                android:layout_width="match_parent"
+                android:background="@color/colorPrimaryDark"
+                android:layout_height="1dp" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="S"/>
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <View android:layout_width="1dp"
+                    android:background="@color/colorPrimaryDark"
+                    android:layout_height="match_parent"/>
 
-            <Spinner
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/spinerSR"
-                android:layout_gravity="center">
-            </Spinner>
+                <Spinner
+                    android:id="@+id/spinerJR"
+                    android:layout_height="match_parent"
+                    android:layout_weight="16.66"
+                    android:gravity="center"
+                    android:textColor="@color/primary_text"
+                    android:text="Lun"
+                    android:textSize="14dp" />
 
-        </LinearLayout>
+                <View android:layout_width="1dp"
+                    android:background="@color/colorPrimaryDark"
+                    android:layout_height="match_parent"/>
+                <Spinner
+                    android:layout_weight="16.66"
+                    android:layout_height="wrap_content"
+                    android:textSize="14dp"
+                    android:textColor="@color/primary_text"
+                    android:text="Lun"
+                    android:gravity="center"
+                    android:id="@+id/spinerVR"/>
 
-    </LinearLayout>
+                <View android:layout_width="1dp"
+                    android:background="@color/colorPrimaryDark"
+                    android:layout_height="match_parent"/>
+                <Spinner
+                    android:layout_weight="16.66"
+                    android:layout_height="wrap_content"
+                    android:textSize="14dp"
+                    android:textColor="@color/primary_text"
+                    android:text="Lun"
+                    android:gravity="center"
+                    android:id="@+id/spinerSR"/>
+
+                <View android:layout_width="1dp"
+                    android:background="@color/colorPrimaryDark"
+                    android:layout_height="match_parent"/>
+            </TableRow>
+
+            <View
+                android:layout_width="match_parent"
+                android:background="@color/colorPrimaryDark"
+                android:layout_height="1dp" />
+
+        </TableLayout>
+    </android.support.v7.widget.CardView>
 
 
     <Button
@@ -323,16 +523,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/btnCompartrir"
-        android:id="@+id/btnCompartirRuta"/>
+        android:id="@+id/btnCompartirRuta"
+        android:background="#995ABC08"
+        android:layout_marginBottom="10dp"/>
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/btnCancelarComp"
-        android:id="@+id/btnCancelarC"/>
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:background="@color/colorPrimaryDark"/>
+        android:id="@+id/btnCancelarC"
+        android:background="#99CA1919"
+        android:layout_marginBottom="10dp"/>
+
 
 </LinearLayout>
+</android.support.v7.widget.CardView>

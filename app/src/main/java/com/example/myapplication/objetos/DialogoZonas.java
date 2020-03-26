@@ -4,6 +4,8 @@ import android.app.ActionBar;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.support.design.widget.Snackbar;
 import android.view.View;
 import android.view.Window;
@@ -100,10 +102,9 @@ public class DialogoZonas {
                 zonas.dismiss();
             }
         });
-
         zonas.show();
-        zonas.getWindow().setLayout(ActionBar.LayoutParams.MATCH_PARENT, ActionBar.LayoutParams.WRAP_CONTENT);
-
+        zonas.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        zonas.getWindow().setLayout(ActionBar.LayoutParams.MATCH_PARENT, ActionBar.LayoutParams.MATCH_PARENT);
 
     }
 }
