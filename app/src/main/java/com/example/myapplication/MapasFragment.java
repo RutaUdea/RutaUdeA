@@ -18,6 +18,7 @@ import android.net.Uri;
 import android.support.v4.app.ActivityCompat;
 import android.util.Log;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.QuickContactBadge;
@@ -122,6 +123,11 @@ public class MapasFragment extends Fragment implements OnMapReadyCallback {
         trazar=v.findViewById(R.id.button1);
         direccion= v.findViewById(R.id.direccion);
         fbtnCompartir= v.findViewById(R.id.fab);
+
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getContext(),
+                R.array.zonas, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        direccion.setAdapter(adapter);
 
 
         SupportMapFragment mapFragment = (SupportMapFragment) this.getChildFragmentManager().findFragmentById(R.id.map);
