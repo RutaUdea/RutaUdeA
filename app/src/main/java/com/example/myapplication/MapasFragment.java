@@ -191,7 +191,6 @@ public class MapasFragment extends Fragment implements OnMapReadyCallback {
                     try {
                         address = coder.getFromLocationName(d, 1);
                         Address location = address.get(0);
-                        direccion.setText(col.toString());
                         latitudOrigen = location.getLatitude();
                         longitudOrigen =location.getLongitude();
                         actualPositionL=true;
