@@ -3,10 +3,12 @@ package com.example.myapplication.objetos;
 import android.app.ActionBar;
 import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.support.design.widget.Snackbar;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
 import android.widget.ArrayAdapter;
@@ -95,6 +97,16 @@ public class DialogoZonas {
                 }
             }
         });
+        zonas.setOnKeyListener(new DialogInterface.OnKeyListener() {
+            @Override
+            public boolean onKey(DialogInterface dialog, int keyCode, KeyEvent event) {
+                if (keyCode == KeyEvent.KEYCODE_BACK) {
+                    dialog.cancel();
+                    return true;
+                }
+                return false;
+            }
+        });
 
         cancelarC.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -107,4 +119,6 @@ public class DialogoZonas {
         zonas.getWindow().setLayout(ActionBar.LayoutParams.MATCH_PARENT, ActionBar.LayoutParams.MATCH_PARENT);
 
     }
+
+
 }

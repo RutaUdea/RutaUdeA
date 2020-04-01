@@ -11,12 +11,8 @@ import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AbsListView;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
-import android.widget.ListAdapter;
-import android.widget.Spinner;
 
 import com.example.myapplication.objetos.Adaptador;
 import com.example.myapplication.objetos.RutasBD;
@@ -100,7 +96,7 @@ public class Rutas extends Fragment {
             @Override
             public void afterTextChanged(Editable s) {
                 restriccion =spinnerZonas.getText().toString();
-                if(restriccion.equals("Todos"))
+                if(restriccion.equals("Todos") || restriccion.isEmpty())
                 {
                     baseDatos.getReference().getRoot().addValueEventListener(new ValueEventListener() {
                         @Override
