@@ -10,12 +10,8 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.os.IBinder;
-import android.support.design.widget.Snackbar;
-import android.support.v4.app.ActivityCompat;
-import android.util.Log;
-import android.widget.Toast;
 
-import static com.bumptech.glide.gifdecoder.GifHeaderParser.TAG;
+import androidx.core.app.ActivityCompat;
 
 public class MiUbicacion extends Service implements LocationListener {
 

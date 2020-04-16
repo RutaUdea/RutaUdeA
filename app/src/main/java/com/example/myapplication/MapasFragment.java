@@ -1,27 +1,20 @@
 package com.example.myapplication;
 
-import android.content.SharedPreferences;
-import android.location.Address;
-import android.location.Geocoder;
-import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 import android.Manifest;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.location.Location;
 import android.net.Uri;
-import android.support.v4.app.ActivityCompat;
+import android.os.Bundle;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import androidx.core.app.ActivityCompat;
+import androidx.fragment.app.Fragment;
 import android.util.Log;
-import android.view.inputmethod.InputMethodManager;
-import android.widget.ArrayAdapter;
-import android.widget.AutoCompleteTextView;
-import android.widget.Button;
-import android.widget.QuickContactBadge;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -31,27 +24,26 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.myapplication.objetos.DialogoZonas;
-import com.google.android.gms.maps.CameraUpdate;
+import com.google.android.gms.common.api.Status;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.CameraPosition;
-import com.google.android.gms.maps.model.CircleOptions;
-import com.google.android.gms.maps.model.GroundOverlayOptions;
 import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.MarkerOptions;
-import com.google.android.gms.maps.model.PolygonOptions;
 import com.google.android.gms.maps.model.PolylineOptions;
-import com.google.android.gms.maps.model.VisibleRegion;
+import com.google.android.libraries.places.api.Places;
+import com.google.android.libraries.places.api.model.Place;
+import com.google.android.libraries.places.widget.AutocompleteSupportFragment;
+import com.google.android.libraries.places.widget.listener.PlaceSelectionListener;
 import com.google.maps.android.PolyUtil;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.IOException;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
 
@@ -74,11 +66,7 @@ public class MapasFragment extends Fragment implements OnMapReadyCallback {
     private String mParam1;
     private String mParam2;
     private String url="";
-    private String urlC="";
-    private Button trazar;
-    private AutoCompleteTextView direccion;
     private Boolean actualPositionL=true;
-    private List <Address> address;
 
     private OnFragmentInteractionListener mListener;
 
@@ -120,14 +108,7 @@ public class MapasFragment extends Fragment implements OnMapReadyCallback {
         // Inflate the layout for this fragment
 
         View v = inflater.inflate(R.layout.fragment_mapas, container, false);
-        trazar=v.findViewById(R.id.button1);
-        direccion= v.findViewById(R.id.direccion);
         fbtnCompartir= v.findViewById(R.id.fab);
-
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getContext(),
-                R.array.zonas, android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        direccion.setAdapter(adapter);
 
 
         SupportMapFragment mapFragment = (SupportMapFragment) this.getChildFragmentManager().findFragmentById(R.id.map);
@@ -171,68 +152,67 @@ public class MapasFragment extends Fragment implements OnMapReadyCallback {
     @Override
     public void onMapReady(GoogleMap googleMap) {
         map = googleMap;
-        prefs=this.getActivity().getSharedPreferences("Datos", Context.MODE_PRIVATE);
-        final SharedPreferences.Editor editor = prefs.edit();
 
-        trazar.setOnClickListener(new View.OnClickListener() {
+        Locale col= new Locale("es","CO");
+        Places.initialize(this.getContext(),"AIzaSyD3MMXPGJ8QSvZNQiNadzgsqPUD_Bnxa7k",col);
+        // Initialize the AutocompleteSupportFragment.
+        AutocompleteSupportFragment autocompleteFragment = (AutocompleteSupportFragment)
+                getChildFragmentManager().findFragmentById(R.id.autocomplete_fragment);
+        autocompleteFragment.setHint("Buscar Dirección o Barrio");
+        autocompleteFragment.setPlaceFields(Arrays.asList(Place.Field.LAT_LNG));
+
+        autocompleteFragment.setOnPlaceSelectedListener(new PlaceSelectionListener() {
             @Override
-            public void onClick(View view) {
-                String d = direccion.getText().toString();
+            public void onPlaceSelected(Place place) {
+                // TODO: Get info about the selected place.
+                LatLng pos=place.getLatLng();
+                latitudOrigen = pos.latitude;
+                longitudOrigen =pos.longitude;
+                actualPositionL=true;
+                if (actualPositionL){
+                    map.clear();
+                    actualPositionL=false;
+
+                    trazarRutaUbicacion(latitudOrigen,longitudOrigen);
+
+                    RequestQueue queue = Volley.newRequestQueue(getActivity());
+                    StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
+                        @Override
+                        public void onResponse(String response) {
 
 
-                if(d.isEmpty()){
-                    toast("No hay dirección para buscar : (");
-                }else{
-                    toast("Buscando \""+d+"\"");
-                    d=d+" antioquia";
-                    Locale col= new Locale("es","CO");
-                    Geocoder coder = new Geocoder(getContext(),col);
+                            try {
+                                jso = new JSONObject(response);
+                                trazarRuta(jso);
+                                Log.i("jsonRuta: ",""+response);
 
-                    try {
-                        address = coder.getFromLocationName(d, 1);
-                        Address location = address.get(0);
-                        latitudOrigen = location.getLatitude();
-                        longitudOrigen =location.getLongitude();
-                        actualPositionL=true;
-                        if (actualPositionL){
-                            map.clear();
-                            actualPositionL=false;
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
 
-                            trazarRutaUbicacion(latitudOrigen,longitudOrigen);
-
-                            RequestQueue queue = Volley.newRequestQueue(getActivity());
-                            StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
-                                @Override
-                                public void onResponse(String response) {
-
-
-                                    try {
-                                        jso = new JSONObject(response);
-                                        trazarRuta(jso);
-                                        Log.i("jsonRuta: ",""+response);
-
-                                    } catch (JSONException e) {
-                                        e.printStackTrace();
-                                    }
-
-                                }
-                            }, new Response.ErrorListener() {
-                                @Override
-                                public void onErrorResponse(VolleyError error) {
-
-                                }
-                            });
-
-                            queue.add(stringRequest);
                         }
-                    } catch (IOException e) {
-                        toast("No se ha encontrado la dirección : (");
-                    }
+                    }, new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+
+                        }
+                    });
+
+                    queue.add(stringRequest);
                 }
+            }
 
-
+            @Override
+            public void onError(Status status) {
+                // TODO: Handle the error.
+                Toast.makeText(getContext(),"error "+status,Toast.LENGTH_LONG).show();
             }
         });
+
+
+
+        prefs=this.getActivity().getSharedPreferences("Datos", Context.MODE_PRIVATE);
+        final SharedPreferences.Editor editor = prefs.edit();
 
 
         if (ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
@@ -307,8 +287,7 @@ public class MapasFragment extends Fragment implements OnMapReadyCallback {
         fbtnCompartir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                urlC="https://www.google.es/maps/dir/" + latitudOrigen + "," + longitudOrigen + "/Universidad+de+Antioquia,+Cl.+67,+Medell%C3%ADn,+Antioquia/@" + latitudOrigen + "," + longitudOrigen + ",17.56z/data=!4m8!4m7!1m0!1m5!1m1!1s0x8e4428e0c9c8772f:0x10cce7ece69b2e2b!2m2!1d" + longitudOrigen + "!2d" + latitudOrigen;
-                editor.putString("ruta", urlC);
+                editor.putString("ruta", url);
                 editor.commit();
                 new DialogoZonas(getActivity());
             }

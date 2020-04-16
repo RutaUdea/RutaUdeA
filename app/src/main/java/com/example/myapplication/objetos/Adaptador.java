@@ -3,8 +3,8 @@ package com.example.myapplication.objetos;
 
 import android.content.Intent;
 import android.net.Uri;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,7 +12,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.example.myapplication.DetalleRuta;
+import com.example.myapplication.MapsActivity;
 import com.example.myapplication.R;
 
 import java.util.List;
@@ -45,7 +45,7 @@ public class Adaptador extends  RecyclerView.Adapter<Adaptador.cohesiveHolder>{
         cohesiveHolder.imgRuta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i=new Intent(cohesiveHolder.itemView.getContext(), DetalleRuta.class);
+                Intent i=new Intent(cohesiveHolder.itemView.getContext(), MapsActivity.class);
                 i.putExtra("RutasBD",ruta);
                 cohesiveHolder.itemView.getContext().startActivity(i);
             }
