@@ -41,6 +41,7 @@
                     android:layout_height="100dp"
                     android:layout_margin="8dp"
                     android:id="@+id/IVfoto"
+                    android:src="@drawable/user"
                     app:civ_border_width="2dp"
                     app:civ_border_color="@color/colorPrimaryDark"/>
 

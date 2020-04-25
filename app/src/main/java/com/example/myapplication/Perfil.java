@@ -4,6 +4,7 @@ package com.example.myapplication;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import com.google.android.material.snackbar.Snackbar;
@@ -40,9 +41,10 @@ public class Perfil extends Fragment implements GoogleApiClient.OnConnectionFail
     private Button bCerrarSession;
     private Button btnActualizar;
     private EditText etNumero;
-    private GoogleApiClient googleApiClient;
-    SharedPreferences prefs;
-    GoogleSignInAccount cuenta;
+    public GoogleApiClient googleApiClient;
+    public SharedPreferences prefs;
+    public GoogleSignInAccount cuenta;
+    public SharedPreferences.Editor editor;
 
 
     public Perfil() {
@@ -63,7 +65,7 @@ public class Perfil extends Fragment implements GoogleApiClient.OnConnectionFail
         etNumero=(EditText) v.findViewById(R.id.etNumero);
 
         prefs=this.getActivity().getSharedPreferences("Datos", Context.MODE_PRIVATE);
-        final SharedPreferences.Editor editor = prefs.edit();
+        editor= prefs.edit();
 
         String tel=prefs.getString("telefono","None");
         if(tel.equals("None") || tel.equals("Null")){
@@ -73,7 +75,6 @@ public class Perfil extends Fragment implements GoogleApiClient.OnConnectionFail
         {
             etNumero.setText(tel);
         }
-
 
         GoogleSignInOptions gso= new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestEmail()
@@ -139,9 +140,13 @@ public class Perfil extends Fragment implements GoogleApiClient.OnConnectionFail
     private void ObteenerResutlado(GoogleSignInResult result) {
         if(result.isSuccess()){
             cuenta=result.getSignInAccount();
+            String nombre=cuenta.getDisplayName();
+            String correo=cuenta.getEmail();
+            Uri foto=cuenta.getPhotoUrl();
             nombrePerfil.setText(cuenta.getDisplayName());
-            correoPErfil.setText(cuenta.getEmail());
-            Glide.with(this).load(cuenta.getPhotoUrl()).into(fotoPerfil);
+            correoPErfil.setText(correo);
+            if(!(cuenta.getPhotoUrl()==null))
+                Glide.with(this).load(foto).into(fotoPerfil);
         }
         else{
             IniciarLogin();

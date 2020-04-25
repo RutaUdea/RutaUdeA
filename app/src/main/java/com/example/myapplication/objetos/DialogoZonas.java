@@ -11,10 +11,13 @@ import com.google.android.material.snackbar.Snackbar;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.Toast;
+
 import com.example.myapplication.R;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -27,7 +30,7 @@ public class DialogoZonas {
     RutasBD ruta;
     SharedPreferences prefs;
 
-    public  DialogoZonas(Context contexto)
+    public  DialogoZonas(Context contexto,String zona)
     {
         final Dialog zonas=new Dialog(contexto);
         zonas.requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -71,9 +74,12 @@ public class DialogoZonas {
         spinnerVR.setAdapter(adapterH);
         spinnerSR.setAdapter(adapterH);
 
+
+
         baseDatos=FirebaseDatabase.getInstance();
         bdReferencia=baseDatos.getReference();
         prefs=contexto.getSharedPreferences("Datos", Context.MODE_PRIVATE);
+        spinnerZonas.setText(zona);
 
         compartirRuta.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -108,6 +114,8 @@ public class DialogoZonas {
             }
         });
 
+
+
         cancelarC.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -115,9 +123,69 @@ public class DialogoZonas {
             }
         });
         zonas.show();
+
+        detectarHorarios(spinnerL,spinnerLR);
+        detectarHorarios(spinnerM,spinnerMR);
+        detectarHorarios(spinnerW,spinnerWR);
+        detectarHorarios(spinnerJ,spinnerJR);
+        detectarHorarios(spinnerV,spinnerVR);
+        detectarHorarios(spinnerS,spinnerSR);
+
         zonas.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         zonas.getWindow().setLayout(ActionBar.LayoutParams.MATCH_PARENT, ActionBar.LayoutParams.MATCH_PARENT);
 
+    }
+
+    public void detectarHorarios(final Spinner ida, final Spinner regreso){
+        regreso.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String l= ida.getItemAtPosition(ida.getSelectedItemPosition()).toString();
+                int lunes=0;
+                int lunesR=0;
+                String lR=regreso.getItemAtPosition(position).toString();
+                if(!(l.equals("No"))){
+                    lunes=Integer.parseInt(l);
+                }
+                if(!(lR.equals("No"))){
+                    lunesR=Integer.parseInt(lR);
+                }
+                if(lunesR<lunes){
+                    Snackbar.make(view,"La hora de regreso deber ser mayor a la de ida",Snackbar.LENGTH_SHORT).show();
+                    regreso.setSelection(0);
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+        ida.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String lR= regreso.getItemAtPosition(regreso.getSelectedItemPosition()).toString();
+                int lunes=0;
+                int lunesR=0;
+                String l=ida.getItemAtPosition(position).toString();
+                if(!(l.equals("No"))){
+                    lunes=Integer.parseInt(l);
+                }
+                if(!(lR.equals("No"))){
+                    lunesR=Integer.parseInt(lR);
+                }
+                if(lunesR<lunes && lunesR!=0){
+                    Snackbar.make(view,"La hora de ida deber ser menor a la de regreso",Snackbar.LENGTH_SHORT).show();
+                    ida.setSelection(0);
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
     }
 
 

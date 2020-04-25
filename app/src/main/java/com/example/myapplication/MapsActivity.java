@@ -120,7 +120,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         nombre.setText(datos.getNombre());
         Uri fotoU= Uri.parse(datos.getFoto());
-        Glide.with(this).load(fotoU).into(foto);
+        if(!(datos.getFoto().equals("foto")))
+            Glide.with(this).load(fotoU).into(foto);
 
 
         msgWhatsapp.setOnClickListener(new View.OnClickListener() {
@@ -201,10 +202,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     latitudOrigen = location.getLatitude();
                     longitudOrigen = location.getLongitude();
                     actualPosition=false;
-
-                    LatLng miPosicion = new LatLng(latitudOrigen,longitudOrigen);
-
-                    mMap.addMarker(new MarkerOptions().position(miPosicion).title("Aqui estoy yo"));
 
                     CameraPosition cameraPosition = new CameraPosition.Builder()
                             .target(new LatLng(6.252429419882802,-75.56922870565965))      // Sets the center of the map to Mountain View

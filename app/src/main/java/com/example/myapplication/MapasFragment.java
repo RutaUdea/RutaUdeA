@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
+import android.location.Geocoder;
 import android.location.Location;
 import android.net.Uri;
 import android.os.Bundle;
@@ -43,6 +44,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
@@ -148,6 +150,7 @@ public class MapasFragment extends Fragment implements OnMapReadyCallback {
     Boolean actualPosition = true;
     JSONObject jso;
     Double longitudOrigen, latitudOrigen;
+    String zona;
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
@@ -159,13 +162,14 @@ public class MapasFragment extends Fragment implements OnMapReadyCallback {
         AutocompleteSupportFragment autocompleteFragment = (AutocompleteSupportFragment)
                 getChildFragmentManager().findFragmentById(R.id.autocomplete_fragment);
         autocompleteFragment.setHint("Buscar Dirección o Barrio");
-        autocompleteFragment.setPlaceFields(Arrays.asList(Place.Field.LAT_LNG));
+        autocompleteFragment.setPlaceFields(Arrays.asList(Place.Field.LAT_LNG,Place.Field.NAME));
 
         autocompleteFragment.setOnPlaceSelectedListener(new PlaceSelectionListener() {
             @Override
             public void onPlaceSelected(Place place) {
                 // TODO: Get info about the selected place.
                 LatLng pos=place.getLatLng();
+                zona=place.getName();
                 latitudOrigen = pos.latitude;
                 longitudOrigen =pos.longitude;
                 actualPositionL=true;
@@ -247,6 +251,12 @@ public class MapasFragment extends Fragment implements OnMapReadyCallback {
             public void onMyLocationChange(Location location) {
 
                 //2.942043!4d-75.2522789
+                Geocoder geocoder = new Geocoder(getContext(), Locale.getDefault());
+                try {
+                    zona=geocoder.getFromLocation(location.getLatitude(),location.getLongitude(),1).get(0).getAddressLine(0);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
 
 
                 if (actualPosition){
@@ -289,7 +299,7 @@ public class MapasFragment extends Fragment implements OnMapReadyCallback {
             public void onClick(View v) {
                 editor.putString("ruta", url);
                 editor.commit();
-                new DialogoZonas(getActivity());
+                new DialogoZonas(getActivity(),zona);
             }
         });
 

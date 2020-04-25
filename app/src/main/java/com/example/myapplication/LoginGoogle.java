@@ -76,11 +76,6 @@ public class LoginGoogle extends AppCompatActivity implements GoogleApiClient.On
         if (result.isSuccess()) {
             GoogleSignInAccount cuenta=result.getSignInAccount();
             SharedPreferences.Editor editor = prefs.edit();
-            editor.putString("nombre",cuenta.getDisplayName());
-            editor.putString("correo",cuenta.getEmail());
-            editor.putString("id",cuenta.getId());
-            editor.putString("foto",cuenta.getPhotoUrl().toString());
-            editor.commit();
             String correo=cuenta.getEmail();
             int resultado=correo.indexOf("udea.edu.co");
             if(resultado!=-1){
@@ -89,7 +84,7 @@ public class LoginGoogle extends AppCompatActivity implements GoogleApiClient.On
                 editor.putString("id",cuenta.getId());
                 editor.putString("foto",cuenta.getPhotoUrl().toString());
                 editor.commit();
-                goMainScreen();
+                goMainScreen(cuenta);
             }
             else{
                 Auth.GoogleSignInApi.signOut(googleApiClient).setResultCallback(new ResultCallback<Status>() {
@@ -105,9 +100,10 @@ public class LoginGoogle extends AppCompatActivity implements GoogleApiClient.On
         }
     }
 
-    private void goMainScreen() {
+    private void goMainScreen(GoogleSignInAccount cuenta) {
         Intent intent = new Intent(this, MainActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+        intent.putExtra("cuenta",cuenta);
         startActivity(intent);
     }
 }

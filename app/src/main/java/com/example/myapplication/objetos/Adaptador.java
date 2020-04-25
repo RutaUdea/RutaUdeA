@@ -41,7 +41,8 @@ public class Adaptador extends  RecyclerView.Adapter<Adaptador.cohesiveHolder>{
         cohesiveHolder.zonal.setText(ruta.getZona());
         String foto=ruta.getFoto();
         Uri myuri = Uri.parse(foto);
-        Glide.with(cohesiveHolder.itemView.getContext()).load(myuri).into(cohesiveHolder.fotol);
+        if(!(foto.equals("foto")))
+            Glide.with(cohesiveHolder.itemView.getContext()).load(myuri).into(cohesiveHolder.fotol);
         cohesiveHolder.imgRuta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
