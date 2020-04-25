@@ -32,7 +32,9 @@ public class LoginGoogle extends AppCompatActivity implements GoogleApiClient.On
         setContentView(R.layout.activity_login_google);
 
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestProfile()
                 .requestEmail()
+                .requestId()
                 .build();
 
         prefs=getSharedPreferences("Datos", Context.MODE_PRIVATE);

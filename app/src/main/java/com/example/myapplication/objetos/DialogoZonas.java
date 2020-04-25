@@ -74,8 +74,6 @@ public class DialogoZonas {
         spinnerVR.setAdapter(adapterH);
         spinnerSR.setAdapter(adapterH);
 
-
-
         baseDatos=FirebaseDatabase.getInstance();
         bdReferencia=baseDatos.getReference();
         prefs=contexto.getSharedPreferences("Datos", Context.MODE_PRIVATE);

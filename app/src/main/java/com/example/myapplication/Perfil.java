@@ -77,7 +77,9 @@ public class Perfil extends Fragment implements GoogleApiClient.OnConnectionFail
         }
 
         GoogleSignInOptions gso= new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestProfile()
                 .requestEmail()
+                .requestId()
                 .build();
 
         googleApiClient= new GoogleApiClient.Builder(getActivity().getApplicationContext())

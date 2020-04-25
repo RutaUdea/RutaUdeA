@@ -69,6 +69,7 @@ public class MapasFragment extends Fragment implements OnMapReadyCallback {
     private String mParam2;
     private String url="";
     private Boolean actualPositionL=true;
+    Place placeS=null;
 
     private OnFragmentInteractionListener mListener;
 
@@ -169,7 +170,7 @@ public class MapasFragment extends Fragment implements OnMapReadyCallback {
             public void onPlaceSelected(Place place) {
                 // TODO: Get info about the selected place.
                 LatLng pos=place.getLatLng();
-                zona=place.getName();
+                placeS=place;
                 latitudOrigen = pos.latitude;
                 longitudOrigen =pos.longitude;
                 actualPositionL=true;
@@ -297,6 +298,8 @@ public class MapasFragment extends Fragment implements OnMapReadyCallback {
         fbtnCompartir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(placeS!=null)
+                    zona=placeS.getName();
                 editor.putString("ruta", url);
                 editor.commit();
                 new DialogoZonas(getActivity(),zona);
