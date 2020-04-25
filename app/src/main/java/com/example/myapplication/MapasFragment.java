@@ -151,7 +151,7 @@ public class MapasFragment extends Fragment implements OnMapReadyCallback {
     Boolean actualPosition = true;
     JSONObject jso;
     Double longitudOrigen, latitudOrigen;
-    String zona;
+    String zona="";
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
@@ -305,9 +305,6 @@ public class MapasFragment extends Fragment implements OnMapReadyCallback {
                 new DialogoZonas(getActivity(),zona);
             }
         });
-
-
-
     }
 
     public void toast(String mensaje){
