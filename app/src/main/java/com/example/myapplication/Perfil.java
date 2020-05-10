@@ -77,9 +77,7 @@ public class Perfil extends Fragment implements GoogleApiClient.OnConnectionFail
         }
 
         GoogleSignInOptions gso= new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestProfile()
                 .requestEmail()
-                .requestId()
                 .build();
 
         googleApiClient= new GoogleApiClient.Builder(getActivity().getApplicationContext())
@@ -145,10 +143,17 @@ public class Perfil extends Fragment implements GoogleApiClient.OnConnectionFail
             String nombre=cuenta.getDisplayName();
             String correo=cuenta.getEmail();
             Uri foto=cuenta.getPhotoUrl();
+            String id=cuenta.getId();
             nombrePerfil.setText(cuenta.getDisplayName());
             correoPErfil.setText(correo);
-            if(!(cuenta.getPhotoUrl()==null))
+            editor.putString("nombre",nombre);
+            editor.putString("correo",correo);
+            editor.putString("id",id);
+            if(!(cuenta.getPhotoUrl()==null)) {
+                editor.putString("foto", foto.toString());
                 Glide.with(this).load(foto).into(fotoPerfil);
+            }
+            editor.commit();
         }
         else{
             IniciarLogin();
