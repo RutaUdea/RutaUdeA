@@ -1,0 +1,528 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    app:cardElevation="4dp"
+    app:cardCornerRadius="30px"
+    android:paddingTop="10dp"
+    android:paddingRight="10dp">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="83dp"
+        android:src="@drawable/backgroundbacktop"
+        android:layout_gravity="top"/>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="176dp"
+        android:src="@drawable/backgroundback"
+        android:layout_gravity="bottom"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:gravity="center"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_gravity="center"
+            android:text="Selecciona los Horarios en los que vas a la U"
+            android:background="#CCFFFFFF"
+            android:textStyle="bold"
+            android:textSize="17dp"/>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardElevation="4dp"
+            app:cardCornerRadius="30px"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp">
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:elevation="10dp">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorPrimaryDark">
+
+                    <View android:layout_width="1dp"
+                        android:background="@color/colorPrimaryDark"
+                        android:layout_height="match_parent"/>
+
+                    <TextView
+                        android:layout_weight="16.66"
+                        android:layout_height="wrap_content"
+                        android:textSize="14dp"
+                        android:text="Lun"
+                        android:gravity="center"
+                        android:textColor="@color/blanco"
+                        android:textStyle="bold"/>
+
+                    <View android:layout_width="1dp"
+                        android:background="@color/blanco"
+                        android:layout_height="match_parent"/>
+
+                    <TextView
+                        android:layout_weight="16.66"
+                        android:layout_height="wrap_content"
+                        android:textSize="14dp"
+                        android:text="Mar"
+                        android:gravity="center"
+                        android:textColor="@color/blanco"
+                        android:textStyle="bold"/>
+
+                    <View android:layout_width="1dp"
+                        android:background="@color/blanco"
+                        android:layout_height="match_parent"/>
+                    <TextView
+                        android:layout_weight="16.66"
+                        android:layout_height="wrap_content"
+                        android:textSize="14dp"
+                        android:text="Mie"
+                        android:gravity="center"
+                        android:textColor="@color/blanco"
+                        android:textStyle="bold"/>
+
+                    <View android:layout_width="1dp"
+                        android:background="@color/colorPrimaryDark"
+                        android:layout_height="match_parent"/>
+
+                </TableRow>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:background="@color/colorPrimaryDark"
+                    android:layout_height="1dp" />
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <View android:layout_width="1dp"
+                        android:background="@color/colorPrimaryDark"
+                        android:layout_height="match_parent"/>
+
+                    <Spinner
+                        android:layout_weight="16.66"
+                        android:layout_height="wrap_content"
+                        android:textSize="14dp"
+                        android:text="Lun"
+                        android:textColor="@color/primary_text"
+                        android:gravity="center"
+                        android:id="@+id/spinerL"/>
+
+                    <View android:layout_width="1dp"
+                        android:background="@color/colorPrimaryDark"
+                        android:layout_height="match_parent"/>
+
+                    <Spinner
+                        android:layout_weight="16.66"
+                        android:layout_height="wrap_content"
+                        android:textSize="14dp"
+                        android:text="Lun"
+                        android:textColor="@color/primary_text"
+                        android:gravity="center"
+                        android:id="@+id/spinerM"/>
+
+                    <View android:layout_width="1dp"
+                        android:background="@color/colorPrimaryDark"
+                        android:layout_height="match_parent"/>
+                    <Spinner
+                        android:layout_weight="16.66"
+                        android:layout_height="wrap_content"
+                        android:textSize="14dp"
+                        android:text="Lun"
+                        android:textColor="@color/primary_text"
+                        android:gravity="center"
+                        android:id="@+id/spinerW"/>
+
+                    <View android:layout_width="1dp"
+                        android:background="@color/colorPrimaryDark"
+                        android:layout_height="match_parent"/>
+
+                </TableRow>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:background="@color/colorPrimaryDark"
+                    android:layout_height="1dp" />
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorPrimaryDark">
+
+                    <View android:layout_width="1dp"
+                        android:background="@color/colorPrimaryDark"
+                        android:layout_height="match_parent"/>
+                    <TextView
+                        android:layout_weight="16.66"
+                        android:layout_height="wrap_content"
+                        android:textSize="14dp"
+                        android:text="Jue"
+                        android:gravity="center"
+                        android:textColor="@color/blanco"
+                        android:textStyle="bold"/>
+
+                    <View android:layout_width="1dp"
+                        android:background="@color/blanco"
+                        android:layout_height="match_parent"/>
+                    <TextView
+                        android:layout_weight="16.66"
+                        android:layout_height="wrap_content"
+                        android:textSize="14dp"
+                        android:text="Vie"
+                        android:gravity="center"
+                        android:textColor="@color/blanco"
+                        android:textStyle="bold"/>
+
+                    <View android:layout_width="1dp"
+                        android:background="@color/blanco"
+                        android:layout_height="match_parent"/>
+                    <TextView
+                        android:layout_weight="16.66"
+                        android:layout_height="wrap_content"
+                        android:textSize="14dp"
+                        android:text="Sab"
+                        android:gravity="center"
+                        android:textColor="@color/blanco"
+                        android:textStyle="bold"/>
+
+                    <View
+                        android:layout_width="2dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/colorPrimaryDark" />
+                </TableRow>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:background="@color/colorPrimaryDark"
+                    android:layout_height="1dp" />
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <View android:layout_width="1dp"
+                        android:background="@color/colorPrimaryDark"
+                        android:layout_height="match_parent"/>
+
+                    <Spinner
+                        android:id="@+id/spinerJ"
+                        android:layout_height="match_parent"
+                        android:layout_weight="16.66"
+                        android:gravity="center"
+                        android:textColor="@color/primary_text"
+                        android:text="Lun"
+                        android:textSize="14dp" />
+
+                    <View android:layout_width="1dp"
+                        android:background="@color/colorPrimaryDark"
+                        android:layout_height="match_parent"/>
+                    <Spinner
+                        android:layout_weight="16.66"
+                        android:layout_height="wrap_content"
+                        android:textSize="14dp"
+                        android:textColor="@color/primary_text"
+                        android:text="Lun"
+                        android:gravity="center"
+                        android:id="@+id/spinerV"/>
+
+                    <View android:layout_width="1dp"
+                        android:background="@color/colorPrimaryDark"
+                        android:layout_height="match_parent"/>
+                    <Spinner
+                        android:layout_weight="16.66"
+                        android:layout_height="wrap_content"
+                        android:textSize="14dp"
+                        android:textColor="@color/primary_text"
+                        android:text="Lun"
+                        android:gravity="center"
+                        android:id="@+id/spinerS"/>
+
+                    <View android:layout_width="1dp"
+                        android:background="@color/colorPrimaryDark"
+                        android:layout_height="match_parent"/>
+                </TableRow>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:background="@color/colorPrimaryDark"
+                    android:layout_height="1dp" />
+
+            </TableLayout>
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_gravity="center"
+            android:text="Horarios en los que sales de la U"
+            android:textStyle="bold"
+            android:textSize="17dp"/>
+
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardElevation="4dp"
+            app:cardCornerRadius="30px"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp">
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:elevation="10dp">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorPrimaryDark">
+
+                    <View android:layout_width="1dp"
+                        android:background="@color/colorPrimaryDark"
+                        android:layout_height="match_parent"/>
+
+                    <TextView
+                        android:layout_weight="16.66"
+                        android:layout_height="wrap_content"
+                        android:textSize="14dp"
+                        android:text="Lun"
+                        android:gravity="center"
+                        android:textColor="@color/blanco"
+                        android:textStyle="bold"/>
+
+                    <View android:layout_width="1dp"
+                        android:background="@color/blanco"
+                        android:layout_height="match_parent"/>
+
+                    <TextView
+                        android:layout_weight="16.66"
+                        android:layout_height="wrap_content"
+                        android:textSize="14dp"
+                        android:text="Mar"
+                        android:gravity="center"
+                        android:textColor="@color/blanco"
+                        android:textStyle="bold"/>
+
+                    <View android:layout_width="1dp"
+                        android:background="@color/blanco"
+                        android:layout_height="match_parent"/>
+                    <TextView
+                        android:layout_weight="16.66"
+                        android:layout_height="wrap_content"
+                        android:textSize="14dp"
+                        android:text="Mie"
+                        android:gravity="center"
+                        android:textColor="@color/blanco"
+                        android:textStyle="bold"/>
+
+                    <View android:layout_width="1dp"
+                        android:background="@color/colorPrimaryDark"
+                        android:layout_height="match_parent"/>
+
+                </TableRow>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:background="@color/colorPrimaryDark"
+                    android:layout_height="1dp" />
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <View android:layout_width="1dp"
+                        android:background="@color/colorPrimaryDark"
+                        android:layout_height="match_parent"/>
+
+                    <Spinner
+                        android:layout_weight="16.66"
+                        android:layout_height="wrap_content"
+                        android:textSize="14dp"
+                        android:text="Lun"
+                        android:textColor="@color/primary_text"
+                        android:gravity="center"
+                        android:id="@+id/spinerLR"/>
+
+                    <View android:layout_width="1dp"
+                        android:background="@color/colorPrimaryDark"
+                        android:layout_height="match_parent"/>
+
+                    <Spinner
+                        android:layout_weight="16.66"
+                        android:layout_height="wrap_content"
+                        android:textSize="14dp"
+                        android:text="Lun"
+                        android:textColor="@color/primary_text"
+                        android:gravity="center"
+                        android:id="@+id/spinerMR"/>
+
+                    <View android:layout_width="1dp"
+                        android:background="@color/colorPrimaryDark"
+                        android:layout_height="match_parent"/>
+                    <Spinner
+                        android:layout_weight="16.66"
+                        android:layout_height="wrap_content"
+                        android:textSize="14dp"
+                        android:text="Lun"
+                        android:textColor="@color/primary_text"
+                        android:gravity="center"
+                        android:id="@+id/spinerWR"/>
+
+                    <View android:layout_width="1dp"
+                        android:background="@color/colorPrimaryDark"
+                        android:layout_height="match_parent"/>
+
+                </TableRow>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:background="@color/colorPrimaryDark"
+                    android:layout_height="1dp" />
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorPrimaryDark">
+
+                    <View android:layout_width="1dp"
+                        android:background="@color/colorPrimaryDark"
+                        android:layout_height="match_parent"/>
+                    <TextView
+                        android:layout_weight="16.66"
+                        android:layout_height="wrap_content"
+                        android:textSize="14dp"
+                        android:text="Jue"
+                        android:gravity="center"
+                        android:textColor="@color/blanco"
+                        android:textStyle="bold"/>
+
+                    <View android:layout_width="1dp"
+                        android:background="@color/blanco"
+                        android:layout_height="match_parent"/>
+                    <TextView
+                        android:layout_weight="16.66"
+                        android:layout_height="wrap_content"
+                        android:textSize="14dp"
+                        android:text="Vie"
+                        android:gravity="center"
+                        android:textColor="@color/blanco"
+                        android:textStyle="bold"/>
+
+                    <View android:layout_width="1dp"
+                        android:background="@color/blanco"
+                        android:layout_height="match_parent"/>
+                    <TextView
+                        android:layout_weight="16.66"
+                        android:layout_height="wrap_content"
+                        android:textSize="14dp"
+                        android:text="Sab"
+                        android:gravity="center"
+                        android:textColor="@color/blanco"
+                        android:textStyle="bold"/>
+
+                    <View
+                        android:layout_width="2dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/colorPrimaryDark" />
+                </TableRow>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:background="@color/colorPrimaryDark"
+                    android:layout_height="1dp" />
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <View android:layout_width="1dp"
+                        android:background="@color/colorPrimaryDark"
+                        android:layout_height="match_parent"/>
+
+                    <Spinner
+                        android:id="@+id/spinerJR"
+                        android:layout_height="match_parent"
+                        android:layout_weight="16.66"
+                        android:gravity="center"
+                        android:textColor="@color/primary_text"
+                        android:text="Lun"
+                        android:textSize="14dp" />
+
+                    <View android:layout_width="1dp"
+                        android:background="@color/colorPrimaryDark"
+                        android:layout_height="match_parent"/>
+                    <Spinner
+                        android:layout_weight="16.66"
+                        android:layout_height="wrap_content"
+                        android:textSize="14dp"
+                        android:textColor="@color/primary_text"
+                        android:text="Lun"
+                        android:gravity="center"
+                        android:id="@+id/spinerVR"/>
+
+                    <View android:layout_width="1dp"
+                        android:background="@color/colorPrimaryDark"
+                        android:layout_height="match_parent"/>
+                    <Spinner
+                        android:layout_weight="16.66"
+                        android:layout_height="wrap_content"
+                        android:textSize="14dp"
+                        android:textColor="@color/primary_text"
+                        android:text="Lun"
+                        android:gravity="center"
+                        android:id="@+id/spinerSR"/>
+
+                    <View android:layout_width="1dp"
+                        android:background="@color/colorPrimaryDark"
+                        android:layout_height="match_parent"/>
+                </TableRow>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:background="@color/colorPrimaryDark"
+                    android:layout_height="1dp" />
+
+            </TableLayout>
+        </androidx.cardview.widget.CardView>
+
+
+        <Button
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ACTUALIZAR HORARIOS"
+            android:textColor="@color/blanco"
+            android:textStyle="bold"
+            android:id="@+id/btnCompartirRuta"
+            android:background="#CC5ABC08"
+            android:layout_marginBottom="10dp"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/btnCancelarComp"
+            android:id="@+id/btnCancelarC"
+            android:textColor="@color/blanco"
+            android:textStyle="bold"
+            android:background="#CCCA1919"
+            android:layout_marginBottom="10dp"/>
+
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

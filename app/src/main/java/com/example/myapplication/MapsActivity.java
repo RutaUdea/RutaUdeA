@@ -4,7 +4,9 @@ import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.FragmentActivity;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.location.Location;
@@ -12,6 +14,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -23,6 +26,8 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
+import com.example.myapplication.objetos.DialogoZonas;
+import com.example.myapplication.objetos.ModificarHorarios;
 import com.example.myapplication.objetos.RutasBD;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -45,23 +50,25 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     RutasBD datos;
     TextView nombre;
-    TextView hLunes;
-    TextView hMartes;
-    TextView hMiercoles;
-    TextView hJueves;
-    TextView hViernes;
-    TextView hSabado;
-    TextView hLunesR;
-    TextView hMartesR;
-    TextView hMiercolesR;
-    TextView hJuevesR;
-    TextView hViernesR;
-    TextView hSabadoR;
+    public TextView hLunes;
+    public TextView hMartes;
+    public TextView hMiercoles;
+    public TextView hJueves;
+    public TextView hViernes;
+    public TextView hSabado;
+    public TextView hLunesR;
+    public TextView hMartesR;
+    public TextView hMiercolesR;
+    public TextView hJuevesR;
+    public TextView hViernesR;
+    public TextView hSabadoR;
     ImageView foto;
     ImageButton msgWhatsapp;
     ImageButton msgGmail;
     ImageButton msgHangout;
+    Button btnModificar;
     String horarios;
+
 
     private GoogleMap mMap;
 
@@ -69,6 +76,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     JSONObject jso;
     Double longitudOrigen, latitudOrigen;
     String url="";
+    SharedPreferences prefs;
+    public SharedPreferences.Editor editor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,6 +91,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         datos=(RutasBD) getIntent().getSerializableExtra("RutasBD");
 
         url=datos.getRuta();
+        prefs=getSharedPreferences("Datos", Context.MODE_PRIVATE);
+        editor=prefs.edit();
 
         nombre=  findViewById(R.id.detalleNombre);
         hLunes= findViewById(R.id.tvLunes);
@@ -100,23 +111,31 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         msgWhatsapp=(ImageButton) findViewById(R.id.imgBtnWhatsApp);
         msgGmail=(ImageButton) findViewById(R.id.imgBtnCorreo);
         msgHangout=(ImageButton) findViewById(R.id.imgBtnHangouts);
+        btnModificar= findViewById(R.id.btnModificar);
+
+        String id=prefs.getString("id","");
+         if(id.equals(datos.getId())){
+             btnModificar.setVisibility(View.VISIBLE);
+         }
+
+         final Context context=this;
+
+         btnModificar.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View v) {
+                 editor.putString("ruta", datos.getRuta());
+                 editor.putString("zona", datos.getZona());
+                 editor.commit();
+                 ModificarHorarios fragmentDialog = new ModificarHorarios();
+                 fragmentDialog.show(getSupportFragmentManager(), "CustomDialog");
+             }
+         });
 
         horarios=datos.getHorarios();
 
-        String[] horariosS=horarios.split(",");
+        cargarHorarios(horarios);
 
-        hLunes.setText(horariosS[0]);
-        hMartes.setText(horariosS[1]);
-        hMiercoles.setText(horariosS[2]);
-        hJueves.setText(horariosS[3]);
-        hViernes.setText(horariosS[4]);
-        hSabado.setText(horariosS[5]);
-        hLunesR.setText(horariosS[6]);
-        hMartesR.setText(horariosS[7]);
-        hMiercolesR.setText(horariosS[8]);
-        hJuevesR.setText(horariosS[9]);
-        hViernesR.setText(horariosS[10]);
-        hSabadoR.setText(horariosS[11]);
+
 
         nombre.setText(datos.getNombre());
         Uri fotoU= Uri.parse(datos.getFoto());
@@ -158,6 +177,23 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         });
     }
 
+    private void cargarHorarios(String horarios) {
+        String[] horariosS=horarios.split(",");
+
+        hLunes.setText(horariosS[0]);
+        hMartes.setText(horariosS[1]);
+        hMiercoles.setText(horariosS[2]);
+        hJueves.setText(horariosS[3]);
+        hViernes.setText(horariosS[4]);
+        hSabado.setText(horariosS[5]);
+        hLunesR.setText(horariosS[6]);
+        hMartesR.setText(horariosS[7]);
+        hMiercolesR.setText(horariosS[8]);
+        hJuevesR.setText(horariosS[9]);
+        hViernesR.setText(horariosS[10]);
+        hSabadoR.setText(horariosS[11]);
+    }
+
 
     /**
      * Manipulates the map once available.
@@ -196,7 +232,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap.setOnMyLocationChangeListener(new GoogleMap.OnMyLocationChangeListener() {
             @Override
             public void onMyLocationChange(Location location) {
-
 
                 if (actualPosition){
                     latitudOrigen = location.getLatitude();
@@ -297,6 +332,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         }
     }
 
+
+
+
+
     protected void sendEmail(View v) {
         String[] TO = {datos.getCorreo()};
         Intent emailIntent = new Intent(Intent.ACTION_SEND);
@@ -310,6 +349,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     "No tienes clientes de email instalados.", Snackbar.LENGTH_SHORT).show();
         }
     }
+
+
 
     /**
      * This interface must be implemented by activities that contain this
