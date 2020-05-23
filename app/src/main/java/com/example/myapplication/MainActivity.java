@@ -13,8 +13,8 @@ import androidx.annotation.NonNull;
 import android.view.MenuItem;
 
 public class MainActivity extends AppCompatActivity implements MapasFragment.OnFragmentInteractionListener {
-    final Fragment fragment1 = new MapasFragment();
-    final Fragment fragment2 = new Rutas();
+    final Fragment fragment1 = new Rutas();
+    final Fragment fragment2 = new MapasFragment();
     final Fragment fragment3 = new Perfil();
     final FragmentManager fm = getSupportFragmentManager();
     Fragment active = fragment1;

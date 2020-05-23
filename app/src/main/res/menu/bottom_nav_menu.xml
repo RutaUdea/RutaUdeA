@@ -4,14 +4,15 @@
 
     <item
         android:id="@+id/navigation_home"
-        android:icon="@drawable/miruta"
-        android:title="@string/title_MiRuta"
+        android:icon="@drawable/rutas"
+        android:title="@string/title_Rutas"
         />
 
     <item
         android:id="@+id/navigation_dashboard"
-        android:icon="@drawable/rutas"
-        android:title="@string/title_Rutas" />
+        android:icon="@drawable/miruta"
+        android:title="@string/title_MiRuta"
+        />
 
     <item
         android:id="@+id/navigation_notifications"
